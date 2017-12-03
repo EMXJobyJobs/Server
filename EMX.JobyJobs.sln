@@ -1,0 +1,156 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.MVC", "EMX.JobyJobs.MVC\EMX.JobyJobs.MVC.csproj", "{E5141C8F-23EB-4A90-81DC-38D560782118}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.MVC.Tests", "EMX.JobyJobs.MVC.Tests\EMX.JobyJobs.MVC.Tests.csproj", "{2CAB8C8F-5DDF-4A71-B1CB-78F3E12ECE8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.BL", "EMX.JobyJobs.BL\EMX.JobyJobs.BL.csproj", "{B749A72E-44CC-4CC3-AE7A-4626B1AD4D8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.DAL", "EMX.JobyJobs.DAL\EMX.JobyJobs.DAL.csproj", "{C6D06EAF-FD02-4E97-AC61-9A2451846411}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{13748BBB-791C-4EAB-9660-B952C87E2F7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.Admin.MVC", "EMX.JobyJobs.Admin.MVC\EMX.JobyJobs.Admin.MVC.csproj", "{F585362E-EAF1-4601-A111-598822A07552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.Admin.MVC.Tests", "EMX.JobyJobs.Admin.MVC.Tests\EMX.JobyJobs.Admin.MVC.Tests.csproj", "{AE63B236-6D47-450A-A0DC-C51EDA401932}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EMX.JobyJobs.ASPCore.API", "EMX.JobyJobs.ASPCore.API\EMX.JobyJobs.ASPCore.API.csproj", "{34167464-052F-41A1-A98E-656D112AA6B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unload", "Unload", "{B2AE051C-BCB1-4F5D-8295-C52A564E88AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.ProxyServices", "EMX.JobyJobs.ProxyServices\EMX.JobyJobs.ProxyServices.csproj", "{32370040-C6B1-45D0-9724-54092C529D5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMX.JobyJobs.Shared", "EMX.JobyJobs.Shared\EMX.JobyJobs.Shared.csproj", "{C9CC9CEC-25A5-45E8-84EB-5816AF4E04E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emx.JobyJobs.TaskEngine.Console", "Emx.JobyJobs.TaskEngine.Console\Emx.JobyJobs.TaskEngine.Console.csproj", "{5A2E72D1-4704-4921-A723-9136E9C13213}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emx.JobyJobs.NotificaitonEngine.Service", "Emx.JobyJobs.NotificaitonEngine.Service\Emx.JobyJobs.NotificaitonEngine.Service.csproj", "{54AD5288-48B2-49CE-A663-CEAE2ACD3661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emx.JobyJobs.NotificaitonEngine.Logic", "Emx.JobyJobs.NotificaitonEngine.Logic\Emx.JobyJobs.NotificaitonEngine.Logic.csproj", "{5732336B-DBC8-4F08-ADFE-7ADCEA46A045}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emx.JobyJobs.TaskEngine.Logic", "Emx.JobyJobs.TaskEngine.Logic\Emx.JobyJobs.TaskEngine.Logic.csproj", "{C0B42F9F-E964-4DA9-88D8-CCE805BD1322}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5141C8F-23EB-4A90-81DC-38D560782118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5141C8F-23EB-4A90-81DC-38D560782118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5141C8F-23EB-4A90-81DC-38D560782118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5141C8F-23EB-4A90-81DC-38D560782118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CAB8C8F-5DDF-4A71-B1CB-78F3E12ECE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CAB8C8F-5DDF-4A71-B1CB-78F3E12ECE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CAB8C8F-5DDF-4A71-B1CB-78F3E12ECE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CAB8C8F-5DDF-4A71-B1CB-78F3E12ECE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B749A72E-44CC-4CC3-AE7A-4626B1AD4D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B749A72E-44CC-4CC3-AE7A-4626B1AD4D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B749A72E-44CC-4CC3-AE7A-4626B1AD4D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B749A72E-44CC-4CC3-AE7A-4626B1AD4D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D06EAF-FD02-4E97-AC61-9A2451846411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D06EAF-FD02-4E97-AC61-9A2451846411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D06EAF-FD02-4E97-AC61-9A2451846411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D06EAF-FD02-4E97-AC61-9A2451846411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F585362E-EAF1-4601-A111-598822A07552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F585362E-EAF1-4601-A111-598822A07552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F585362E-EAF1-4601-A111-598822A07552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F585362E-EAF1-4601-A111-598822A07552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE63B236-6D47-450A-A0DC-C51EDA401932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE63B236-6D47-450A-A0DC-C51EDA401932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE63B236-6D47-450A-A0DC-C51EDA401932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE63B236-6D47-450A-A0DC-C51EDA401932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34167464-052F-41A1-A98E-656D112AA6B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34167464-052F-41A1-A98E-656D112AA6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34167464-052F-41A1-A98E-656D112AA6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34167464-052F-41A1-A98E-656D112AA6B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32370040-C6B1-45D0-9724-54092C529D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32370040-C6B1-45D0-9724-54092C529D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32370040-C6B1-45D0-9724-54092C529D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32370040-C6B1-45D0-9724-54092C529D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9CC9CEC-25A5-45E8-84EB-5816AF4E04E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9CC9CEC-25A5-45E8-84EB-5816AF4E04E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9CC9CEC-25A5-45E8-84EB-5816AF4E04E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9CC9CEC-25A5-45E8-84EB-5816AF4E04E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A2E72D1-4704-4921-A723-9136E9C13213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2E72D1-4704-4921-A723-9136E9C13213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2E72D1-4704-4921-A723-9136E9C13213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2E72D1-4704-4921-A723-9136E9C13213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54AD5288-48B2-49CE-A663-CEAE2ACD3661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54AD5288-48B2-49CE-A663-CEAE2ACD3661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54AD5288-48B2-49CE-A663-CEAE2ACD3661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54AD5288-48B2-49CE-A663-CEAE2ACD3661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5732336B-DBC8-4F08-ADFE-7ADCEA46A045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5732336B-DBC8-4F08-ADFE-7ADCEA46A045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5732336B-DBC8-4F08-ADFE-7ADCEA46A045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5732336B-DBC8-4F08-ADFE-7ADCEA46A045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0B42F9F-E964-4DA9-88D8-CCE805BD1322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0B42F9F-E964-4DA9-88D8-CCE805BD1322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0B42F9F-E964-4DA9-88D8-CCE805BD1322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0B42F9F-E964-4DA9-88D8-CCE805BD1322}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5141C8F-23EB-4A90-81DC-38D560782118} = {B2AE051C-BCB1-4F5D-8295-C52A564E88AA}
+		{2CAB8C8F-5DDF-4A71-B1CB-78F3E12ECE8E} = {B2AE051C-BCB1-4F5D-8295-C52A564E88AA}
+		{F585362E-EAF1-4601-A111-598822A07552} = {13748BBB-791C-4EAB-9660-B952C87E2F7B}
+		{AE63B236-6D47-450A-A0DC-C51EDA401932} = {13748BBB-791C-4EAB-9660-B952C87E2F7B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80746AFE-FBA5-4277-A85D-F6C2D3634947}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 14
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://oahdout85.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EMX.JobyJobs.MVC\\EMX.JobyJobs.MVC.csproj
+		SccProjectTopLevelParentUniqueName1 = EMX.JobyJobs.sln
+		SccProjectName1 = EMX.JobyJobs.MVC
+		SccLocalPath1 = EMX.JobyJobs.MVC
+		SccProjectUniqueName2 = EMX.JobyJobs.MVC.Tests\\EMX.JobyJobs.MVC.Tests.csproj
+		SccProjectTopLevelParentUniqueName2 = EMX.JobyJobs.sln
+		SccProjectName2 = EMX.JobyJobs.MVC.Tests
+		SccLocalPath2 = EMX.JobyJobs.MVC.Tests
+		SccProjectUniqueName3 = EMX.JobyJobs.BL\\EMX.JobyJobs.BL.csproj
+		SccProjectName3 = EMX.JobyJobs.BL
+		SccLocalPath3 = EMX.JobyJobs.BL
+		SccProjectUniqueName4 = EMX.JobyJobs.DAL\\EMX.JobyJobs.DAL.csproj
+		SccProjectName4 = EMX.JobyJobs.DAL
+		SccLocalPath4 = EMX.JobyJobs.DAL
+		SccProjectUniqueName5 = EMX.JobyJobs.Admin.MVC\\EMX.JobyJobs.Admin.MVC.csproj
+		SccProjectTopLevelParentUniqueName5 = EMX.JobyJobs.sln
+		SccProjectName5 = EMX.JobyJobs.Admin.MVC
+		SccLocalPath5 = EMX.JobyJobs.Admin.MVC
+		SccProjectUniqueName6 = EMX.JobyJobs.Admin.MVC.Tests\\EMX.JobyJobs.Admin.MVC.Tests.csproj
+		SccProjectTopLevelParentUniqueName6 = EMX.JobyJobs.sln
+		SccProjectName6 = EMX.JobyJobs.Admin.MVC.Tests
+		SccLocalPath6 = EMX.JobyJobs.Admin.MVC.Tests
+		SccProjectUniqueName7 = EMX.JobyJobs.ASPCore.API\\EMX.JobyJobs.ASPCore.API.csproj
+		SccProjectName7 = EMX.JobyJobs.ASPCore.API
+		SccLocalPath7 = EMX.JobyJobs.ASPCore.API
+		SccProjectUniqueName8 = EMX.JobyJobs.ProxyServices\\EMX.JobyJobs.ProxyServices.csproj
+		SccProjectName8 = EMX.JobyJobs.ProxyServices
+		SccLocalPath8 = EMX.JobyJobs.ProxyServices
+		SccProjectUniqueName9 = EMX.JobyJobs.Shared\\EMX.JobyJobs.Shared.csproj
+		SccProjectName9 = EMX.JobyJobs.Shared
+		SccLocalPath9 = EMX.JobyJobs.Shared
+		SccProjectUniqueName10 = Emx.JobyJobs.TaskEngine.Console\\Emx.JobyJobs.TaskEngine.Console.csproj
+		SccProjectName10 = Emx.JobyJobs.TaskEngine.Console
+		SccLocalPath10 = Emx.JobyJobs.TaskEngine.Console
+		SccProjectUniqueName11 = Emx.JobyJobs.NotificaitonEngine.Service\\Emx.JobyJobs.NotificaitonEngine.Service.csproj
+		SccProjectName11 = Emx.JobyJobs.NotificaitonEngine.Service
+		SccLocalPath11 = Emx.JobyJobs.NotificaitonEngine.Service
+		SccProjectUniqueName12 = Emx.JobyJobs.NotificaitonEngine.Logic\\Emx.JobyJobs.NotificaitonEngine.Logic.csproj
+		SccProjectName12 = Emx.JobyJobs.NotificaitonEngine.Logic
+		SccLocalPath12 = Emx.JobyJobs.NotificaitonEngine.Logic
+		SccProjectUniqueName13 = Emx.JobyJobs.TaskEngine.Logic\\Emx.JobyJobs.TaskEngine.Logic.csproj
+		SccProjectName13 = Emx.JobyJobs.TaskEngine.Logic
+		SccLocalPath13 = Emx.JobyJobs.TaskEngine.Logic
+	EndGlobalSection
+EndGlobal

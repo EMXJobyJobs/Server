@@ -1,0 +1,9 @@
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\bin\Debug\EMX.JobyJobsShared.dll.config
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\bin\Debug\EMX.JobyJobsShared.dll
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\bin\Debug\EMX.JobyJobsShared.pdb
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\bin\Debug\log4net.dll
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\bin\Debug\log4net.xml
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\obj\Debug\EMX.JobyJobsShared.csproj.CoreCompileInputs.cache
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\obj\Debug\EMX.JobyJobsShared.dll
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\obj\Debug\EMX.JobyJobsShared.pdb
+c:\WorkDrive\TFS\EMX\JobyJobs\Source\EMX.JobyJobsShared\obj\Debug\EMX.JobyJobsShared.csprojResolveAssemblyReference.cache
