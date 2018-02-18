@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="joby_jobsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="JobyJobsDB2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin_person_settings" EntityType="joby_jobsModel.admin_person_settings" />
+    <EntitySet Name="admin_persons" EntityType="joby_jobsModel.admin_persons" />
+    <EntitySet Name="application_statuses" EntityType="joby_jobsModel.application_statuses" />
+    <EntitySet Name="applications" EntityType="joby_jobsModel.application" />
+    <EntitySet Name="companies" EntityType="joby_jobsModel.company" />
+    <EntitySet Name="company_person_settings" EntityType="joby_jobsModel.company_person_settings" />
+    <EntitySet Name="company_persons" EntityType="joby_jobsModel.company_persons" />
+    <EntitySet Name="conversation_messages" EntityType="joby_jobsModel.conversation_messages" />
+    <EntitySet Name="fields" EntityType="joby_jobsModel.field" />
+    <EntitySet Name="global_settings" EntityType="joby_jobsModel.global_settings" />
+    <EntitySet Name="interviews" EntityType="joby_jobsModel.interview" />
+    <EntitySet Name="position_tags" EntityType="joby_jobsModel.position_tags" />
+    <EntitySet Name="positions" EntityType="joby_jobsModel.position" />
+    <EntitySet Name="professions" EntityType="joby_jobsModel.profession" />
+    <EntitySet Name="reaction_types" EntityType="joby_jobsModel.reaction_types" />
+    <EntitySet Name="reactions" EntityType="joby_jobsModel.reaction" />
+    <EntitySet Name="roles" EntityType="joby_jobsModel.role" />
+    <EntitySet Name="subprofessions" EntityType="joby_jobsModel.subprofession" />
+    <EntitySet Name="userclaims" EntityType="joby_jobsModel.userclaim" />
+    <EntitySet Name="userlogins" EntityType="joby_jobsModel.userlogin" />
+    <EntitySet Name="users" EntityType="joby_jobsModel.user" />
+    <EntitySet Name="worker_job_interests" EntityType="joby_jobsModel.worker_job_interests" />
+    <EntitySet Name="worker_resumes" EntityType="joby_jobsModel.worker_resumes" />
+    <EntitySet Name="worker_settings" EntityType="joby_jobsModel.worker_settings" />
+    <EntitySet Name="workers" EntityType="joby_jobsModel.worker" />
+    <AssociationSet Name="admin_person_id_FK" Association="joby_jobsModel.admin_person_id_FK">
+      <End Role="admin_persons" EntitySet="admin_persons" />
+      <End Role="admin_person_settings" EntitySet="admin_person_settings" />
+    </AssociationSet>
+    <AssociationSet Name="user_id_1" Association="joby_jobsModel.user_id_1">
+      <End Role="user" EntitySet="users" />
+      <End Role="admin_persons" EntitySet="admin_persons" />
+    </AssociationSet>
+    <AssociationSet Name="position_id4" Association="joby_jobsModel.position_id4">
+      <End Role="position" EntitySet="positions" />
+      <End Role="application" EntitySet="applications" />
+    </AssociationSet>
+    <AssociationSet Name="worker_id4" Association="joby_jobsModel.worker_id4">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="application" EntitySet="applications" />
+    </AssociationSet>
+    <AssociationSet Name="company_id" Association="joby_jobsModel.company_id">
+      <End Role="company" EntitySet="companies" />
+      <End Role="conversation_messages" EntitySet="conversation_messages" />
+    </AssociationSet>
+    <AssociationSet Name="company_id_FK" Association="joby_jobsModel.company_id_FK">
+      <End Role="company" EntitySet="companies" />
+      <End Role="company_persons" EntitySet="company_persons" />
+    </AssociationSet>
+    <AssociationSet Name="company_id17" Association="joby_jobsModel.company_id17">
+      <End Role="company" EntitySet="companies" />
+      <End Role="reaction" EntitySet="reactions" />
+    </AssociationSet>
+    <AssociationSet Name="company_id6" Association="joby_jobsModel.company_id6">
+      <End Role="company" EntitySet="companies" />
+      <End Role="interview" EntitySet="interviews" />
+    </AssociationSet>
+    <AssociationSet Name="company_person_id_FK" Association="joby_jobsModel.company_person_id_FK">
+      <End Role="company_persons" EntitySet="company_persons" />
+      <End Role="company_person_settings" EntitySet="company_person_settings" />
+    </AssociationSet>
+    <AssociationSet Name="company_person_id_6" Association="joby_jobsModel.company_person_id_6">
+      <End Role="company_persons" EntitySet="company_persons" />
+      <End Role="conversation_messages" EntitySet="conversation_messages" />
+    </AssociationSet>
+    <AssociationSet Name="user_id_3" Association="joby_jobsModel.user_id_3">
+      <End Role="user" EntitySet="users" />
+      <End Role="company_persons" EntitySet="company_persons" />
+    </AssociationSet>
+    <AssociationSet Name="worker_id_5" Association="joby_jobsModel.worker_id_5">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="conversation_messages" EntitySet="conversation_messages" />
+    </AssociationSet>
+    <AssociationSet Name="worker_id6" Association="joby_jobsModel.worker_id6">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="interview" EntitySet="interviews" />
+    </AssociationSet>
+    <AssociationSet Name="worker_id9" Association="joby_jobsModel.worker_id9">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="reaction" EntitySet="reactions" />
+    </AssociationSet>
+    <AssociationSet Name="ApplicationUser_Claims" Association="joby_jobsModel.ApplicationUser_Claims">
+      <End Role="user" EntitySet="users" />
+      <End Role="userclaim" EntitySet="userclaims" />
+    </AssociationSet>
+    <AssociationSet Name="ApplicationUser_Logins" Association="joby_jobsModel.ApplicationUser_Logins">
+      <End Role="user" EntitySet="users" />
+      <End Role="userlogin" EntitySet="userlogins" />
+    </AssociationSet>
+    <AssociationSet Name="User_Id" Association="joby_jobsModel.User_Id">
+      <End Role="user" EntitySet="users" />
+      <End Role="worker" EntitySet="workers" />
+    </AssociationSet>
+    <AssociationSet Name="worker_id_fk1" Association="joby_jobsModel.worker_id_fk1">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="worker_settings" EntitySet="worker_settings" />
+    </AssociationSet>
+    <AssociationSet Name="userroles" Association="joby_jobsModel.userroles">
+      <End Role="user" EntitySet="users" />
+      <End Role="role" EntitySet="roles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="admin_person_settings">
+    <Key>
+      <PropertyRef Name="setting_id" />
+    </Key>
+    <Property Name="setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_person_id" Type="Int32" Nullable="false" />
+    <Property Name="setting_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="settings_value" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="last_updated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="admin_persons" Relationship="joby_jobsModel.admin_person_id_FK" FromRole="admin_person_settings" ToRole="admin_persons" />
+  </EntityType>
+  <EntityType Name="admin_persons">
+    <Key>
+      <PropertyRef Name="admin_person_id" />
+    </Key>
+    <Property Name="admin_person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="identity_user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="first_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="register_date" Type="DateTime" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="admin_person_settings" Relationship="joby_jobsModel.admin_person_id_FK" FromRole="admin_persons" ToRole="admin_person_settings" />
+    <NavigationProperty Name="user" Relationship="joby_jobsModel.user_id_1" FromRole="admin_persons" ToRole="user" />
+  </EntityType>
+  <EntityType Name="application_statuses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="visual_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="application">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="worker_id" Type="Int32" Nullable="false" />
+    <Property Name="position_id" Type="Int32" Nullable="false" />
+    <Property Name="status_id" Type="Int32" Nullable="false" />
+    <Property Name="application_start_date" Type="DateTime" Nullable="false" />
+    <Property Name="story" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="last_updated" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="active" Type="Boolean" />
+    <NavigationProperty Name="position" Relationship="joby_jobsModel.position_id4" FromRole="application" ToRole="position" />
+    <NavigationProperty Name="worker" Relationship="joby_jobsModel.worker_id4" FromRole="application" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="contact_person_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="contact_person_phone" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="registration_date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="conversation_messages" Relationship="joby_jobsModel.company_id" FromRole="company" ToRole="conversation_messages" />
+    <NavigationProperty Name="company_persons" Relationship="joby_jobsModel.company_id_FK" FromRole="company" ToRole="company_persons" />
+    <NavigationProperty Name="reactions" Relationship="joby_jobsModel.company_id17" FromRole="company" ToRole="reaction" />
+    <NavigationProperty Name="interviews" Relationship="joby_jobsModel.company_id6" FromRole="company" ToRole="interview" />
+  </EntityType>
+  <EntityType Name="company_person_settings">
+    <Key>
+      <PropertyRef Name="setting_id" />
+    </Key>
+    <Property Name="setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company_person_id" Type="Int32" Nullable="false" />
+    <Property Name="setting_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="settings_value" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="last_updated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="company_persons" Relationship="joby_jobsModel.company_person_id_FK" FromRole="company_person_settings" ToRole="company_persons" />
+  </EntityType>
+  <EntityType Name="company_persons">
+    <Key>
+      <PropertyRef Name="company_person_id" />
+    </Key>
+    <Property Name="company_person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="identity_user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="company_id" Type="Int32" Nullable="false" />
+    <Property Name="first_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="register_date" Type="DateTime" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="company" Relationship="joby_jobsModel.company_id_FK" FromRole="company_persons" ToRole="company" />
+    <NavigationProperty Name="company_person_settings" Relationship="joby_jobsModel.company_person_id_FK" FromRole="company_persons" ToRole="company_person_settings" />
+    <NavigationProperty Name="conversation_messages" Relationship="joby_jobsModel.company_person_id_6" FromRole="company_persons" ToRole="conversation_messages" />
+    <NavigationProperty Name="user" Relationship="joby_jobsModel.user_id_3" FromRole="company_persons" ToRole="user" />
+  </EntityType>
+  <EntityType Name="conversation_messages">
+    <Key>
+      <PropertyRef Name="message_id" />
+    </Key>
+    <Property Name="message_id" Type="Int32" Nullable="false" />
+    <Property Name="message_uid" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="message_type" Type="Int32" Nullable="false" />
+    <Property Name="worker_id" Type="Int32" Nullable="false" />
+    <Property Name="company_id" Type="Int32" Nullable="false" />
+    <Property Name="company_person_id" Type="Int32" Nullable="false" />
+    <Property Name="header" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <Property Name="is_read" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="company" Relationship="joby_jobsModel.company_id" FromRole="conversation_messages" ToRole="company" />
+    <NavigationProperty Name="company_persons" Relationship="joby_jobsModel.company_person_id_6" FromRole="conversation_messages" ToRole="company_persons" />
+    <NavigationProperty Name="worker" Relationship="joby_jobsModel.worker_id_5" FromRole="conversation_messages" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="field">
+    <Key>
+      <PropertyRef Name="filed_id" />
+    </Key>
+    <Property Name="filed_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="global_settings">
+    <Key>
+      <PropertyRef Name="global_setting_id" />
+    </Key>
+    <Property Name="global_setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="global_settings_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="value" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="interview">
+    <Key>
+      <PropertyRef Name="interview_id" />
+    </Key>
+    <Property Name="interview_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="interview_uid" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="company_id" Type="Int32" Nullable="false" />
+    <Property Name="worker_id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <Property Name="location" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="notes" Type="String" MaxLength="9999" FixedLength="false" Unicode="false" />
+    <Property Name="is_cancelled" Type="Boolean" />
+    <Property Name="cancel_reason" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="company" Relationship="joby_jobsModel.company_id6" FromRole="interview" ToRole="company" />
+    <NavigationProperty Name="worker" Relationship="joby_jobsModel.worker_id6" FromRole="interview" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="position_tags">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="position_id" Type="Int32" Nullable="false" />
+    <Property Name="tag_id" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="precedence" Type="Int32" />
+  </EntityType>
+  <EntityType Name="position">
+    <Key>
+      <PropertyRef Name="position_id" />
+    </Key>
+    <Property Name="position_id" Type="Int32" Nullable="false" />
+    <Property Name="position_uid" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="company_id" Type="Int32" Nullable="false" />
+    <Property Name="position_type" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="profession_id" Type="Int32" Nullable="false" />
+    <Property Name="subprofession_id" Type="Int32" Nullable="false" />
+    <Property Name="salary_min" Type="Int32" Nullable="false" />
+    <Property Name="salary_max" Type="Int32" Nullable="false" />
+    <Property Name="location" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="status_id" Type="Int32" Nullable="false" />
+    <Property Name="internal_precedence" Type="Int32" />
+    <Property Name="draft" Type="Boolean" Nullable="false" />
+    <Property Name="frozen" Type="Boolean" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="applications" Relationship="joby_jobsModel.position_id4" FromRole="position" ToRole="application" />
+  </EntityType>
+  <EntityType Name="profession">
+    <Key>
+      <PropertyRef Name="profession_id" />
+    </Key>
+    <Property Name="profession_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="field_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="tag_id" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="professionscol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="reaction_types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reaction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="worker_id" Type="Int32" Nullable="false" />
+    <Property Name="company_id" Type="Int32" Nullable="false" />
+    <Property Name="reaction_type_id" Type="Int32" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="company" Relationship="joby_jobsModel.company_id17" FromRole="reaction" ToRole="company" />
+    <NavigationProperty Name="worker" Relationship="joby_jobsModel.worker_id9" FromRole="reaction" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="joby_jobsModel.userroles" FromRole="role" ToRole="user" />
+  </EntityType>
+  <EntityType Name="subprofession">
+    <Key>
+      <PropertyRef Name="subprofession_id" />
+    </Key>
+    <Property Name="subprofession_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="profession_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="tag_id" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userclaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ClaimValue" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="user" Relationship="joby_jobsModel.ApplicationUser_Claims" FromRole="userclaim" ToRole="user" />
+  </EntityType>
+  <EntityType Name="userlogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="user" Relationship="joby_jobsModel.ApplicationUser_Logins" FromRole="userlogin" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="admin_persons" Relationship="joby_jobsModel.user_id_1" FromRole="user" ToRole="admin_persons" />
+    <NavigationProperty Name="company_persons" Relationship="joby_jobsModel.user_id_3" FromRole="user" ToRole="company_persons" />
+    <NavigationProperty Name="userclaims" Relationship="joby_jobsModel.ApplicationUser_Claims" FromRole="user" ToRole="userclaim" />
+    <NavigationProperty Name="userlogins" Relationship="joby_jobsModel.ApplicationUser_Logins" FromRole="user" ToRole="userlogin" />
+    <NavigationProperty Name="workers" Relationship="joby_jobsModel.User_Id" FromRole="user" ToRole="worker" />
+    <NavigationProperty Name="roles" Relationship="joby_jobsModel.userroles" FromRole="user" ToRole="role" />
+  </EntityType>
+  <EntityType Name="worker_job_interests">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="worker_id" Type="Int32" Nullable="false" />
+    <Property Name="salary_min" Type="Int32" />
+    <Property Name="salary_max" Type="Int32" />
+    <Property Name="distance" Type="Int32" />
+  </EntityType>
+  <EntityType Name="worker_resumes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="worker_id" Type="Int32" Nullable="false" />
+    <Property Name="file" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="worker_settings">
+    <Key>
+      <PropertyRef Name="setting_id" />
+    </Key>
+    <Property Name="setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="worker_id" Type="Int32" Nullable="false" />
+    <Property Name="setting_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="settings_value" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="last_updated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="worker" Relationship="joby_jobsModel.worker_id_fk1" FromRole="worker_settings" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="worker">
+    <Key>
+      <PropertyRef Name="worker_id" />
+    </Key>
+    <Property Name="worker_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="identity_user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="first_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="register_date" Type="DateTime" Nullable="false" />
+    <Property Name="gender" Type="Int32" Nullable="false" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="last_update" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="applications" Relationship="joby_jobsModel.worker_id4" FromRole="worker" ToRole="application" />
+    <NavigationProperty Name="conversation_messages" Relationship="joby_jobsModel.worker_id_5" FromRole="worker" ToRole="conversation_messages" />
+    <NavigationProperty Name="interviews" Relationship="joby_jobsModel.worker_id6" FromRole="worker" ToRole="interview" />
+    <NavigationProperty Name="reactions" Relationship="joby_jobsModel.worker_id9" FromRole="worker" ToRole="reaction" />
+    <NavigationProperty Name="user" Relationship="joby_jobsModel.User_Id" FromRole="worker" ToRole="user" />
+    <NavigationProperty Name="worker_settings" Relationship="joby_jobsModel.worker_id_fk1" FromRole="worker" ToRole="worker_settings" />
+  </EntityType>
+  <Association Name="admin_person_id_FK">
+    <End Type="joby_jobsModel.admin_persons" Role="admin_persons" Multiplicity="1" />
+    <End Type="joby_jobsModel.admin_person_settings" Role="admin_person_settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin_persons">
+        <PropertyRef Name="admin_person_id" />
+      </Principal>
+      <Dependent Role="admin_person_settings">
+        <PropertyRef Name="admin_person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_id_1">
+    <End Type="joby_jobsModel.user" Role="user" Multiplicity="1" />
+    <End Type="joby_jobsModel.admin_persons" Role="admin_persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="admin_persons">
+        <PropertyRef Name="identity_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="position_id4">
+    <End Type="joby_jobsModel.position" Role="position" Multiplicity="1" />
+    <End Type="joby_jobsModel.application" Role="application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="position">
+        <PropertyRef Name="position_id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="position_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="worker_id4">
+    <End Type="joby_jobsModel.worker" Role="worker" Multiplicity="1" />
+    <End Type="joby_jobsModel.application" Role="application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="worker_id" />
+      </Principal>
+      <Dependent Role="application">
+        <PropertyRef Name="worker_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="company_id">
+    <End Type="joby_jobsModel.company" Role="company" Multiplicity="1" />
+    <End Type="joby_jobsModel.conversation_messages" Role="conversation_messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="conversation_messages">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="company_id_FK">
+    <End Type="joby_jobsModel.company" Role="company" Multiplicity="1" />
+    <End Type="joby_jobsModel.company_persons" Role="company_persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="company_persons">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="company_id17">
+    <End Type="joby_jobsModel.company" Role="company" Multiplicity="1" />
+    <End Type="joby_jobsModel.reaction" Role="reaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="reaction">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="company_id6">
+    <End Type="joby_jobsModel.company" Role="company" Multiplicity="1" />
+    <End Type="joby_jobsModel.interview" Role="interview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company">
+        <PropertyRef Name="company_id" />
+      </Principal>
+      <Dependent Role="interview">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="company_person_id_FK">
+    <End Type="joby_jobsModel.company_persons" Role="company_persons" Multiplicity="1" />
+    <End Type="joby_jobsModel.company_person_settings" Role="company_person_settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company_persons">
+        <PropertyRef Name="company_person_id" />
+      </Principal>
+      <Dependent Role="company_person_settings">
+        <PropertyRef Name="company_person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="company_person_id_6">
+    <End Type="joby_jobsModel.company_persons" Role="company_persons" Multiplicity="1" />
+    <End Type="joby_jobsModel.conversation_messages" Role="conversation_messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="company_persons">
+        <PropertyRef Name="company_person_id" />
+      </Principal>
+      <Dependent Role="conversation_messages">
+        <PropertyRef Name="company_person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_id_3">
+    <End Type="joby_jobsModel.user" Role="user" Multiplicity="1" />
+    <End Type="joby_jobsModel.company_persons" Role="company_persons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="company_persons">
+        <PropertyRef Name="identity_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="worker_id_5">
+    <End Type="joby_jobsModel.worker" Role="worker" Multiplicity="1" />
+    <End Type="joby_jobsModel.conversation_messages" Role="conversation_messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="worker_id" />
+      </Principal>
+      <Dependent Role="conversation_messages">
+        <PropertyRef Name="worker_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="worker_id6">
+    <End Type="joby_jobsModel.worker" Role="worker" Multiplicity="1" />
+    <End Type="joby_jobsModel.interview" Role="interview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="worker_id" />
+      </Principal>
+      <Dependent Role="interview">
+        <PropertyRef Name="worker_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="worker_id9">
+    <End Type="joby_jobsModel.worker" Role="worker" Multiplicity="1" />
+    <End Type="joby_jobsModel.reaction" Role="reaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="worker_id" />
+      </Principal>
+      <Dependent Role="reaction">
+        <PropertyRef Name="worker_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ApplicationUser_Claims">
+    <End Type="joby_jobsModel.user" Role="user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="joby_jobsModel.userclaim" Role="userclaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userclaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ApplicationUser_Logins">
+    <End Type="joby_jobsModel.user" Role="user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="joby_jobsModel.userlogin" Role="userlogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userlogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Id">
+    <End Type="joby_jobsModel.user" Role="user" Multiplicity="1" />
+    <End Type="joby_jobsModel.worker" Role="worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="worker">
+        <PropertyRef Name="identity_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="worker_id_fk1">
+    <End Type="joby_jobsModel.worker" Role="worker" Multiplicity="1" />
+    <End Type="joby_jobsModel.worker_settings" Role="worker_settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="worker_id" />
+      </Principal>
+      <Dependent Role="worker_settings">
+        <PropertyRef Name="worker_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="userroles">
+    <End Type="joby_jobsModel.user" Role="user" Multiplicity="*" />
+    <End Type="joby_jobsModel.role" Role="role" Multiplicity="*" />
+  </Association>
+</Schema>

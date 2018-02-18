@@ -1,0 +1,2307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="joby_jobsModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin_person_settings">
+          <Key>
+            <PropertyRef Name="setting_id" />
+          </Key>
+          <Property Name="setting_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_person_id" Type="int" Nullable="false" />
+          <Property Name="setting_key" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="settings_value" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="last_updated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="admin_persons">
+          <Key>
+            <PropertyRef Name="admin_person_id" />
+          </Key>
+          <Property Name="admin_person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="identity_user_id" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="register_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="last_update" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="application_statuses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="visual_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="active" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="applications">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seeker_id" Type="int" Nullable="false" />
+          <Property Name="position_id" Type="int" Nullable="false" />
+          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="application_start_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="story" Type="longtext" Nullable="false" />
+          <Property Name="watched" Type="bit" />
+          <Property Name="last_updated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="conversation_messages">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="int" Nullable="false" />
+          <Property Name="message_uid" Type="varchar" MaxLength="38" />
+          <Property Name="message_type" Type="int" Nullable="false" />
+          <Property Name="seeker_id" Type="int" Nullable="false" />
+          <Property Name="employer_id" Type="int" Nullable="false" />
+          <Property Name="employer_person_id" Type="int" Nullable="false" />
+          <Property Name="header" Type="varchar" MaxLength="300" />
+          <Property Name="content" Type="longtext" />
+          <Property Name="date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="is_read" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employer_person_settings">
+          <Key>
+            <PropertyRef Name="setting_id" />
+          </Key>
+          <Property Name="setting_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employer_person_id" Type="int" Nullable="false" />
+          <Property Name="setting_key" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="settings_value" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="last_updated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employer_persons">
+          <Key>
+            <PropertyRef Name="employer_person_id" />
+          </Key>
+          <Property Name="employer_person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="identity_user_id" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="employer_id" Type="int" Nullable="false" />
+          <Property Name="employer_department_id" Type="int" />
+          <Property Name="first_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="id_number" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="job_function" Type="varchar" MaxLength="50" />
+          <Property Name="phone_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="register_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="is_initiator" Type="bit" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="last_update" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employer_persons_invites">
+          <Key>
+            <PropertyRef Name="invite_id" />
+          </Key>
+          <Property Name="invite_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invite_uid" Type="varchar" MaxLength="38" />
+          <Property Name="employer_person_id" Type="int" Nullable="false" />
+          <Property Name="recipient_email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employers">
+          <Key>
+            <PropertyRef Name="employer_id" />
+          </Key>
+          <Property Name="employer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="contact_person_name" Type="varchar" MaxLength="150" />
+          <Property Name="contact_person_phone_number" Type="varchar" MaxLength="150" />
+          <Property Name="company_hp" Type="varchar" MaxLength="50" />
+          <Property Name="join_date" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logo" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="about" Type="text" />
+          <Property Name="website_url" Type="varchar" MaxLength="500" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="last_updated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empoyer_departments">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employer_id" Type="int" Nullable="false" />
+          <Property Name="department_name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="extern_cities">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fields">
+          <Key>
+            <PropertyRef Name="filed_id" />
+          </Key>
+          <Property Name="filed_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="global_settings">
+          <Key>
+            <PropertyRef Name="global_setting_id" />
+          </Key>
+          <Property Name="global_setting_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="global_settings_key" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="value" Type="text" />
+        </EntityType>
+        <EntityType Name="interviews">
+          <Key>
+            <PropertyRef Name="interview_id" />
+          </Key>
+          <Property Name="interview_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="interview_uid" Type="varchar" MaxLength="38" />
+          <Property Name="employer_id" Type="int" Nullable="false" />
+          <Property Name="seeker_id" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="notes" Type="varchar" MaxLength="9999" />
+          <Property Name="is_cancelled" Type="bit" />
+          <Property Name="cancel_reason" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="position_tags">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="varchar" MaxLength="38" Nullable="false" />
+          <Property Name="precedence" Type="int" />
+        </EntityType>
+        <EntityType Name="positions">
+          <Key>
+            <PropertyRef Name="position_id" />
+          </Key>
+          <Property Name="position_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position_uid" Type="varchar" MaxLength="38" />
+          <Property Name="employer_id" Type="int" Nullable="false" />
+          <Property Name="position_type" Type="int" />
+          <Property Name="title" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="profession_id" Type="int" Nullable="false" />
+          <Property Name="subprofession_id" Type="int" />
+          <Property Name="salary_min" Type="int" Nullable="false" />
+          <Property Name="salary_max" Type="int" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="description" Type="longtext" Nullable="false" />
+          <Property Name="status_id" Type="int" Nullable="false" />
+          <Property Name="internal_precedence" Type="int" />
+          <Property Name="draft" Type="bit" Nullable="false" />
+          <Property Name="frozen" Type="bit" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="professions">
+          <Key>
+            <PropertyRef Name="profession_id" />
+          </Key>
+          <Property Name="profession_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="field_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reaction_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reactions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seeker_id" Type="int" Nullable="false" />
+          <Property Name="employer_id" Type="int" />
+          <Property Name="reaction_type_id" Type="int" Nullable="false" />
+          <Property Name="position_id" Type="int" />
+          <Property Name="employer_person_id" Type="int" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="last_updated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="seeker_job_interests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seeker_id" Type="int" Nullable="false" />
+          <Property Name="salary_min" Type="int" />
+          <Property Name="location_cities" Type="varchar" MaxLength="500" />
+          <Property Name="distance" Type="int" />
+        </EntityType>
+        <EntityType Name="seeker_resumes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seeker_id" Type="int" Nullable="false" />
+          <Property Name="about_me" Type="longtext" Nullable="false" />
+          <Property Name="cv_file" Type="varchar" MaxLength="500" />
+          <Property Name="cv_upload_date" Type="datetime" Precision="0" />
+          <Property Name="last_updated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="seeker_settings">
+          <Key>
+            <PropertyRef Name="setting_id" />
+          </Key>
+          <Property Name="setting_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seeker_id" Type="int" Nullable="false" />
+          <Property Name="setting_key" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="settings_value" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="last_updated" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="seekers">
+          <Key>
+            <PropertyRef Name="seeker_id" />
+          </Key>
+          <Property Name="seeker_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="identity_user_id" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_number" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="register_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="birth_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="gender" Type="int" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="last_update" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subprofessions">
+          <Key>
+            <PropertyRef Name="subprofession_id" />
+          </Key>
+          <Property Name="subprofession_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="profession_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="tag_id" Type="varchar" MaxLength="38" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userclaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="longtext" />
+          <Property Name="ClaimValue" Type="longtext" />
+        </EntityType>
+        <EntityType Name="userlogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userroles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bool" Nullable="false" />
+          <Property Name="PasswordHash" Type="longtext" />
+          <Property Name="SecurityStamp" Type="longtext" />
+          <Property Name="PhoneNumber" Type="longtext" />
+          <Property Name="PhoneNumberConfirmed" Type="bool" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bool" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" Precision="0" />
+          <Property Name="LockoutEnabled" Type="bool" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <Association Name="admin_person_id_FK">
+          <End Role="admin_persons" Type="Self.admin_persons" Multiplicity="1" />
+          <End Role="admin_person_settings" Type="Self.admin_person_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin_persons">
+              <PropertyRef Name="admin_person_id" />
+            </Principal>
+            <Dependent Role="admin_person_settings">
+              <PropertyRef Name="admin_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="application_status_id_1">
+          <End Role="application_statuses" Type="Self.application_statuses" Multiplicity="1" />
+          <End Role="applications" Type="Self.applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="applications">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationUser_Claims">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userclaims" Type="Self.userclaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userclaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationUser_Logins">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userlogins" Type="Self.userlogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userlogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationUser_Roles">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userroles" Type="Self.userroles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userroles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_department_id2">
+          <End Role="empoyer_departments" Type="Self.empoyer_departments" Multiplicity="0..1" />
+          <End Role="employer_persons" Type="Self.employer_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empoyer_departments">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="employer_persons">
+              <PropertyRef Name="employer_department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id_16">
+          <End Role="employers" Type="Self.employers" Multiplicity="0..1" />
+          <End Role="reactions" Type="Self.reactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employers">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="reactions">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id1">
+          <End Role="employers" Type="Self.employers" Multiplicity="1" />
+          <End Role="positions" Type="Self.positions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employers">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="positions">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id21">
+          <End Role="employers" Type="Self.employers" Multiplicity="1" />
+          <End Role="empoyer_departments" Type="Self.empoyer_departments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employers">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="empoyer_departments">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id3">
+          <End Role="employers" Type="Self.employers" Multiplicity="1" />
+          <End Role="conversation_messages" Type="Self.conversation_messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employers">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="conversation_messages">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id6">
+          <End Role="employers" Type="Self.employers" Multiplicity="1" />
+          <End Role="interviews" Type="Self.interviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employers">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="interviews">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id8">
+          <End Role="employers" Type="Self.employers" Multiplicity="1" />
+          <End Role="employer_persons" Type="Self.employer_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employers">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="employer_persons">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id">
+          <End Role="employer_persons" Type="Self.employer_persons" Multiplicity="0..1" />
+          <End Role="reactions" Type="Self.reactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="reactions">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id11">
+          <End Role="employer_persons" Type="Self.employer_persons" Multiplicity="1" />
+          <End Role="employer_persons_invites" Type="Self.employer_persons_invites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="employer_persons_invites">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id3">
+          <End Role="employer_persons" Type="Self.employer_persons" Multiplicity="1" />
+          <End Role="conversation_messages" Type="Self.conversation_messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="conversation_messages">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id4">
+          <End Role="employer_persons" Type="Self.employer_persons" Multiplicity="1" />
+          <End Role="employer_person_settings" Type="Self.employer_person_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="employer_person_settings">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="field_id1">
+          <End Role="fields" Type="Self.fields" Multiplicity="1" />
+          <End Role="professions" Type="Self.professions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fields">
+              <PropertyRef Name="filed_id" />
+            </Principal>
+            <Dependent Role="professions">
+              <PropertyRef Name="field_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IdentityRole_Users">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userroles" Type="Self.userroles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userroles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="position_id">
+          <End Role="positions" Type="Self.positions" Multiplicity="0..1" />
+          <End Role="reactions" Type="Self.reactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="positions">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="reactions">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="position_id1">
+          <End Role="positions" Type="Self.positions" Multiplicity="1" />
+          <End Role="position_tags" Type="Self.position_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="positions">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="position_tags">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="position_id4">
+          <End Role="positions" Type="Self.positions" Multiplicity="1" />
+          <End Role="applications" Type="Self.applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="positions">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="applications">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="profession_id">
+          <End Role="professions" Type="Self.professions" Multiplicity="1" />
+          <End Role="subprofessions" Type="Self.subprofessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="professions">
+              <PropertyRef Name="profession_id" />
+            </Principal>
+            <Dependent Role="subprofessions">
+              <PropertyRef Name="profession_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="profession_id1">
+          <End Role="professions" Type="Self.professions" Multiplicity="1" />
+          <End Role="positions" Type="Self.positions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="professions">
+              <PropertyRef Name="profession_id" />
+            </Principal>
+            <Dependent Role="positions">
+              <PropertyRef Name="profession_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reaction_type_1">
+          <End Role="reaction_types" Type="Self.reaction_types" Multiplicity="1" />
+          <End Role="reactions" Type="Self.reactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reaction_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reactions">
+              <PropertyRef Name="reaction_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id1">
+          <End Role="seekers" Type="Self.seekers" Multiplicity="1" />
+          <End Role="applications" Type="Self.applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seekers">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="applications">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id13">
+          <End Role="seekers" Type="Self.seekers" Multiplicity="1" />
+          <End Role="seeker_settings" Type="Self.seeker_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seekers">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="seeker_settings">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id19">
+          <End Role="seekers" Type="Self.seekers" Multiplicity="1" />
+          <End Role="seeker_job_interests" Type="Self.seeker_job_interests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seekers">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="seeker_job_interests">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id3">
+          <End Role="seekers" Type="Self.seekers" Multiplicity="1" />
+          <End Role="conversation_messages" Type="Self.conversation_messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seekers">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="conversation_messages">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id6">
+          <End Role="seekers" Type="Self.seekers" Multiplicity="1" />
+          <End Role="interviews" Type="Self.interviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seekers">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="interviews">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id7">
+          <End Role="seekers" Type="Self.seekers" Multiplicity="1" />
+          <End Role="seeker_resumes" Type="Self.seeker_resumes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seekers">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="seeker_resumes">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id9">
+          <End Role="seekers" Type="Self.seekers" Multiplicity="1" />
+          <End Role="reactions" Type="Self.reactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seekers">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="reactions">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="subprofession_id1">
+          <End Role="subprofessions" Type="Self.subprofessions" Multiplicity="0..1" />
+          <End Role="positions" Type="Self.positions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subprofessions">
+              <PropertyRef Name="subprofession_id" />
+            </Principal>
+            <Dependent Role="positions">
+              <PropertyRef Name="subprofession_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_id_1">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="admin_persons" Type="Self.admin_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="admin_persons">
+              <PropertyRef Name="identity_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_id1">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="employer_persons" Type="Self.employer_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="employer_persons">
+              <PropertyRef Name="identity_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_id2">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="seekers" Type="Self.seekers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="seekers">
+              <PropertyRef Name="identity_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="joby_jobsModelStoreContainer">
+          <EntitySet Name="admin_person_settings" EntityType="Self.admin_person_settings" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="admin_persons" EntityType="Self.admin_persons" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="application_statuses" EntityType="Self.application_statuses" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="applications" EntityType="Self.applications" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="conversation_messages" EntityType="Self.conversation_messages" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="employer_person_settings" EntityType="Self.employer_person_settings" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="employer_persons" EntityType="Self.employer_persons" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="employer_persons_invites" EntityType="Self.employer_persons_invites" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="employers" EntityType="Self.employers" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="empoyer_departments" EntityType="Self.empoyer_departments" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="extern_cities" EntityType="Self.extern_cities" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="fields" EntityType="Self.fields" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="global_settings" EntityType="Self.global_settings" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="interviews" EntityType="Self.interviews" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="position_tags" EntityType="Self.position_tags" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="positions" EntityType="Self.positions" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="professions" EntityType="Self.professions" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="reaction_types" EntityType="Self.reaction_types" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="reactions" EntityType="Self.reactions" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="seeker_job_interests" EntityType="Self.seeker_job_interests" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="seeker_resumes" EntityType="Self.seeker_resumes" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="seeker_settings" EntityType="Self.seeker_settings" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="seekers" EntityType="Self.seekers" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="subprofessions" EntityType="Self.subprofessions" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="userclaims" EntityType="Self.userclaims" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="userlogins" EntityType="Self.userlogins" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="userroles" EntityType="Self.userroles" Schema="joby_jobs" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="joby_jobs" store:Type="Tables" />
+          <AssociationSet Name="admin_person_id_FK" Association="Self.admin_person_id_FK">
+            <End Role="admin_persons" EntitySet="admin_persons" />
+            <End Role="admin_person_settings" EntitySet="admin_person_settings" />
+          </AssociationSet>
+          <AssociationSet Name="application_status_id_1" Association="Self.application_status_id_1">
+            <End Role="application_statuses" EntitySet="application_statuses" />
+            <End Role="applications" EntitySet="applications" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationUser_Claims" Association="Self.ApplicationUser_Claims">
+            <End Role="users" EntitySet="users" />
+            <End Role="userclaims" EntitySet="userclaims" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationUser_Logins" Association="Self.ApplicationUser_Logins">
+            <End Role="users" EntitySet="users" />
+            <End Role="userlogins" EntitySet="userlogins" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationUser_Roles" Association="Self.ApplicationUser_Roles">
+            <End Role="users" EntitySet="users" />
+            <End Role="userroles" EntitySet="userroles" />
+          </AssociationSet>
+          <AssociationSet Name="employer_department_id2" Association="Self.employer_department_id2">
+            <End Role="empoyer_departments" EntitySet="empoyer_departments" />
+            <End Role="employer_persons" EntitySet="employer_persons" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id_16" Association="Self.employer_id_16">
+            <End Role="employers" EntitySet="employers" />
+            <End Role="reactions" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id1" Association="Self.employer_id1">
+            <End Role="employers" EntitySet="employers" />
+            <End Role="positions" EntitySet="positions" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id21" Association="Self.employer_id21">
+            <End Role="employers" EntitySet="employers" />
+            <End Role="empoyer_departments" EntitySet="empoyer_departments" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id3" Association="Self.employer_id3">
+            <End Role="employers" EntitySet="employers" />
+            <End Role="conversation_messages" EntitySet="conversation_messages" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id6" Association="Self.employer_id6">
+            <End Role="employers" EntitySet="employers" />
+            <End Role="interviews" EntitySet="interviews" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id8" Association="Self.employer_id8">
+            <End Role="employers" EntitySet="employers" />
+            <End Role="employer_persons" EntitySet="employer_persons" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id" Association="Self.employer_person_id">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="reactions" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id11" Association="Self.employer_person_id11">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="employer_persons_invites" EntitySet="employer_persons_invites" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id3" Association="Self.employer_person_id3">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="conversation_messages" EntitySet="conversation_messages" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id4" Association="Self.employer_person_id4">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="employer_person_settings" EntitySet="employer_person_settings" />
+          </AssociationSet>
+          <AssociationSet Name="field_id1" Association="Self.field_id1">
+            <End Role="fields" EntitySet="fields" />
+            <End Role="professions" EntitySet="professions" />
+          </AssociationSet>
+          <AssociationSet Name="IdentityRole_Users" Association="Self.IdentityRole_Users">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="userroles" EntitySet="userroles" />
+          </AssociationSet>
+          <AssociationSet Name="position_id" Association="Self.position_id">
+            <End Role="positions" EntitySet="positions" />
+            <End Role="reactions" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="position_id1" Association="Self.position_id1">
+            <End Role="positions" EntitySet="positions" />
+            <End Role="position_tags" EntitySet="position_tags" />
+          </AssociationSet>
+          <AssociationSet Name="position_id4" Association="Self.position_id4">
+            <End Role="positions" EntitySet="positions" />
+            <End Role="applications" EntitySet="applications" />
+          </AssociationSet>
+          <AssociationSet Name="profession_id" Association="Self.profession_id">
+            <End Role="professions" EntitySet="professions" />
+            <End Role="subprofessions" EntitySet="subprofessions" />
+          </AssociationSet>
+          <AssociationSet Name="profession_id1" Association="Self.profession_id1">
+            <End Role="professions" EntitySet="professions" />
+            <End Role="positions" EntitySet="positions" />
+          </AssociationSet>
+          <AssociationSet Name="reaction_type_1" Association="Self.reaction_type_1">
+            <End Role="reaction_types" EntitySet="reaction_types" />
+            <End Role="reactions" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id1" Association="Self.seeker_id1">
+            <End Role="seekers" EntitySet="seekers" />
+            <End Role="applications" EntitySet="applications" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id13" Association="Self.seeker_id13">
+            <End Role="seekers" EntitySet="seekers" />
+            <End Role="seeker_settings" EntitySet="seeker_settings" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id19" Association="Self.seeker_id19">
+            <End Role="seekers" EntitySet="seekers" />
+            <End Role="seeker_job_interests" EntitySet="seeker_job_interests" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id3" Association="Self.seeker_id3">
+            <End Role="seekers" EntitySet="seekers" />
+            <End Role="conversation_messages" EntitySet="conversation_messages" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id6" Association="Self.seeker_id6">
+            <End Role="seekers" EntitySet="seekers" />
+            <End Role="interviews" EntitySet="interviews" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id7" Association="Self.seeker_id7">
+            <End Role="seekers" EntitySet="seekers" />
+            <End Role="seeker_resumes" EntitySet="seeker_resumes" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id9" Association="Self.seeker_id9">
+            <End Role="seekers" EntitySet="seekers" />
+            <End Role="reactions" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="subprofession_id1" Association="Self.subprofession_id1">
+            <End Role="subprofessions" EntitySet="subprofessions" />
+            <End Role="positions" EntitySet="positions" />
+          </AssociationSet>
+          <AssociationSet Name="user_id_1" Association="Self.user_id_1">
+            <End Role="users" EntitySet="users" />
+            <End Role="admin_persons" EntitySet="admin_persons" />
+          </AssociationSet>
+          <AssociationSet Name="user_id1" Association="Self.user_id1">
+            <End Role="users" EntitySet="users" />
+            <End Role="employer_persons" EntitySet="employer_persons" />
+          </AssociationSet>
+          <AssociationSet Name="user_id2" Association="Self.user_id2">
+            <End Role="users" EntitySet="users" />
+            <End Role="seekers" EntitySet="seekers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="joby_jobsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="JobyJobsDB2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin_person_settings" EntityType="joby_jobsModel.admin_person_settings" />
+          <EntitySet Name="admin_persons" EntityType="joby_jobsModel.admin_persons" />
+          <EntitySet Name="application_statuses" EntityType="joby_jobsModel.application_statuses" />
+          <EntitySet Name="applications" EntityType="joby_jobsModel.application" />
+          <EntitySet Name="conversation_messages" EntityType="joby_jobsModel.conversation_messages" />
+          <EntitySet Name="employer_person_settings" EntityType="joby_jobsModel.employer_person_settings" />
+          <EntitySet Name="employer_persons" EntityType="joby_jobsModel.employer_persons" />
+          <EntitySet Name="employer_persons_invites" EntityType="joby_jobsModel.employer_persons_invites" />
+          <EntitySet Name="employers" EntityType="joby_jobsModel.employer" />
+          <EntitySet Name="empoyer_departments" EntityType="joby_jobsModel.empoyer_departments" />
+          <EntitySet Name="extern_cities" EntityType="joby_jobsModel.extern_cities" />
+          <EntitySet Name="fields" EntityType="joby_jobsModel.field" />
+          <EntitySet Name="global_settings" EntityType="joby_jobsModel.global_settings" />
+          <EntitySet Name="interviews" EntityType="joby_jobsModel.interview" />
+          <EntitySet Name="position_tags" EntityType="joby_jobsModel.position_tags" />
+          <EntitySet Name="positions" EntityType="joby_jobsModel.position" />
+          <EntitySet Name="professions" EntityType="joby_jobsModel.profession" />
+          <EntitySet Name="reaction_types" EntityType="joby_jobsModel.reaction_types" />
+          <EntitySet Name="reactions" EntityType="joby_jobsModel.reaction" />
+          <EntitySet Name="roles" EntityType="joby_jobsModel.role" />
+          <EntitySet Name="seeker_job_interests" EntityType="joby_jobsModel.seeker_job_interests" />
+          <EntitySet Name="seeker_resumes" EntityType="joby_jobsModel.seeker_resumes" />
+          <EntitySet Name="seeker_settings" EntityType="joby_jobsModel.seeker_settings" />
+          <EntitySet Name="seekers" EntityType="joby_jobsModel.seeker" />
+          <EntitySet Name="subprofessions" EntityType="joby_jobsModel.subprofession" />
+          <EntitySet Name="userclaims" EntityType="joby_jobsModel.userclaim" />
+          <EntitySet Name="userlogins" EntityType="joby_jobsModel.userlogin" />
+          <EntitySet Name="users" EntityType="joby_jobsModel.user" />
+          <AssociationSet Name="admin_person_id_FK" Association="joby_jobsModel.admin_person_id_FK">
+            <End Role="admin_persons" EntitySet="admin_persons" />
+            <End Role="admin_person_settings" EntitySet="admin_person_settings" />
+          </AssociationSet>
+          <AssociationSet Name="user_id_1" Association="joby_jobsModel.user_id_1">
+            <End Role="user" EntitySet="users" />
+            <End Role="admin_persons" EntitySet="admin_persons" />
+          </AssociationSet>
+          <AssociationSet Name="application_status_id_1" Association="joby_jobsModel.application_status_id_1">
+            <End Role="application_statuses" EntitySet="application_statuses" />
+            <End Role="application" EntitySet="applications" />
+          </AssociationSet>
+          <AssociationSet Name="position_id4" Association="joby_jobsModel.position_id4">
+            <End Role="position" EntitySet="positions" />
+            <End Role="application" EntitySet="applications" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id1" Association="joby_jobsModel.seeker_id1">
+            <End Role="seeker" EntitySet="seekers" />
+            <End Role="application" EntitySet="applications" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id3" Association="joby_jobsModel.employer_id3">
+            <End Role="employer" EntitySet="employers" />
+            <End Role="conversation_messages" EntitySet="conversation_messages" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id3" Association="joby_jobsModel.employer_person_id3">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="conversation_messages" EntitySet="conversation_messages" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id3" Association="joby_jobsModel.seeker_id3">
+            <End Role="seeker" EntitySet="seekers" />
+            <End Role="conversation_messages" EntitySet="conversation_messages" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id4" Association="joby_jobsModel.employer_person_id4">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="employer_person_settings" EntitySet="employer_person_settings" />
+          </AssociationSet>
+          <AssociationSet Name="employer_department_id2" Association="joby_jobsModel.employer_department_id2">
+            <End Role="empoyer_departments" EntitySet="empoyer_departments" />
+            <End Role="employer_persons" EntitySet="employer_persons" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id8" Association="joby_jobsModel.employer_id8">
+            <End Role="employer" EntitySet="employers" />
+            <End Role="employer_persons" EntitySet="employer_persons" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id" Association="joby_jobsModel.employer_person_id">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="reaction" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="employer_person_id11" Association="joby_jobsModel.employer_person_id11">
+            <End Role="employer_persons" EntitySet="employer_persons" />
+            <End Role="employer_persons_invites" EntitySet="employer_persons_invites" />
+          </AssociationSet>
+          <AssociationSet Name="user_id1" Association="joby_jobsModel.user_id1">
+            <End Role="user" EntitySet="users" />
+            <End Role="employer_persons" EntitySet="employer_persons" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id_16" Association="joby_jobsModel.employer_id_16">
+            <End Role="employer" EntitySet="employers" />
+            <End Role="reaction" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id1" Association="joby_jobsModel.employer_id1">
+            <End Role="employer" EntitySet="employers" />
+            <End Role="position" EntitySet="positions" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id21" Association="joby_jobsModel.employer_id21">
+            <End Role="employer" EntitySet="employers" />
+            <End Role="empoyer_departments" EntitySet="empoyer_departments" />
+          </AssociationSet>
+          <AssociationSet Name="employer_id6" Association="joby_jobsModel.employer_id6">
+            <End Role="employer" EntitySet="employers" />
+            <End Role="interview" EntitySet="interviews" />
+          </AssociationSet>
+          <AssociationSet Name="field_id1" Association="joby_jobsModel.field_id1">
+            <End Role="field" EntitySet="fields" />
+            <End Role="profession" EntitySet="professions" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id6" Association="joby_jobsModel.seeker_id6">
+            <End Role="seeker" EntitySet="seekers" />
+            <End Role="interview" EntitySet="interviews" />
+          </AssociationSet>
+          <AssociationSet Name="position_id1" Association="joby_jobsModel.position_id1">
+            <End Role="position" EntitySet="positions" />
+            <End Role="position_tags" EntitySet="position_tags" />
+          </AssociationSet>
+          <AssociationSet Name="position_id" Association="joby_jobsModel.position_id">
+            <End Role="position" EntitySet="positions" />
+            <End Role="reaction" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="profession_id1" Association="joby_jobsModel.profession_id1">
+            <End Role="profession" EntitySet="professions" />
+            <End Role="position" EntitySet="positions" />
+          </AssociationSet>
+          <AssociationSet Name="subprofession_id1" Association="joby_jobsModel.subprofession_id1">
+            <End Role="subprofession" EntitySet="subprofessions" />
+            <End Role="position" EntitySet="positions" />
+          </AssociationSet>
+          <AssociationSet Name="profession_id" Association="joby_jobsModel.profession_id">
+            <End Role="profession" EntitySet="professions" />
+            <End Role="subprofession" EntitySet="subprofessions" />
+          </AssociationSet>
+          <AssociationSet Name="reaction_type_1" Association="joby_jobsModel.reaction_type_1">
+            <End Role="reaction_types" EntitySet="reaction_types" />
+            <End Role="reaction" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id9" Association="joby_jobsModel.seeker_id9">
+            <End Role="seeker" EntitySet="seekers" />
+            <End Role="reaction" EntitySet="reactions" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id19" Association="joby_jobsModel.seeker_id19">
+            <End Role="seeker" EntitySet="seekers" />
+            <End Role="seeker_job_interests" EntitySet="seeker_job_interests" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id7" Association="joby_jobsModel.seeker_id7">
+            <End Role="seeker" EntitySet="seekers" />
+            <End Role="seeker_resumes" EntitySet="seeker_resumes" />
+          </AssociationSet>
+          <AssociationSet Name="seeker_id13" Association="joby_jobsModel.seeker_id13">
+            <End Role="seeker" EntitySet="seekers" />
+            <End Role="seeker_settings" EntitySet="seeker_settings" />
+          </AssociationSet>
+          <AssociationSet Name="user_id2" Association="joby_jobsModel.user_id2">
+            <End Role="user" EntitySet="users" />
+            <End Role="seeker" EntitySet="seekers" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationUser_Claims" Association="joby_jobsModel.ApplicationUser_Claims">
+            <End Role="user" EntitySet="users" />
+            <End Role="userclaim" EntitySet="userclaims" />
+          </AssociationSet>
+          <AssociationSet Name="ApplicationUser_Logins" Association="joby_jobsModel.ApplicationUser_Logins">
+            <End Role="user" EntitySet="users" />
+            <End Role="userlogin" EntitySet="userlogins" />
+          </AssociationSet>
+          <AssociationSet Name="userroles" Association="joby_jobsModel.userroles">
+            <End Role="user" EntitySet="users" />
+            <End Role="role" EntitySet="roles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="admin_person_settings">
+          <Key>
+            <PropertyRef Name="setting_id" />
+          </Key>
+          <Property Name="setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_person_id" Type="Int32" Nullable="false" />
+          <Property Name="setting_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="settings_value" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="last_updated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="admin_persons" Relationship="joby_jobsModel.admin_person_id_FK" FromRole="admin_person_settings" ToRole="admin_persons" />
+        </EntityType>
+        <EntityType Name="admin_persons">
+          <Key>
+            <PropertyRef Name="admin_person_id" />
+          </Key>
+          <Property Name="admin_person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="identity_user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="first_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="register_date" Type="DateTime" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="last_update" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="admin_person_settings" Relationship="joby_jobsModel.admin_person_id_FK" FromRole="admin_persons" ToRole="admin_person_settings" />
+          <NavigationProperty Name="user" Relationship="joby_jobsModel.user_id_1" FromRole="admin_persons" ToRole="user" />
+        </EntityType>
+        <EntityType Name="application_statuses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="visual_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="applications" Relationship="joby_jobsModel.application_status_id_1" FromRole="application_statuses" ToRole="application" />
+        </EntityType>
+        <EntityType Name="application">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="position_id" Type="Int32" Nullable="false" />
+          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="application_start_date" Type="DateTime" Nullable="false" />
+          <Property Name="story" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="watched" Type="Boolean" />
+          <Property Name="last_updated" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="active" Type="Boolean" />
+          <NavigationProperty Name="application_statuses" Relationship="joby_jobsModel.application_status_id_1" FromRole="application" ToRole="application_statuses" />
+          <NavigationProperty Name="position" Relationship="joby_jobsModel.position_id4" FromRole="application" ToRole="position" />
+          <NavigationProperty Name="seeker" Relationship="joby_jobsModel.seeker_id1" FromRole="application" ToRole="seeker" />
+        </EntityType>
+        <EntityType Name="conversation_messages">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="Int32" Nullable="false" />
+          <Property Name="message_uid" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+          <Property Name="message_type" Type="Int32" Nullable="false" />
+          <Property Name="seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="employer_id" Type="Int32" Nullable="false" />
+          <Property Name="employer_person_id" Type="Int32" Nullable="false" />
+          <Property Name="header" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="is_read" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="employer" Relationship="joby_jobsModel.employer_id3" FromRole="conversation_messages" ToRole="employer" />
+          <NavigationProperty Name="employer_persons" Relationship="joby_jobsModel.employer_person_id3" FromRole="conversation_messages" ToRole="employer_persons" />
+          <NavigationProperty Name="seeker" Relationship="joby_jobsModel.seeker_id3" FromRole="conversation_messages" ToRole="seeker" />
+        </EntityType>
+        <EntityType Name="employer_person_settings">
+          <Key>
+            <PropertyRef Name="setting_id" />
+          </Key>
+          <Property Name="setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employer_person_id" Type="Int32" Nullable="false" />
+          <Property Name="setting_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="settings_value" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="last_updated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="employer_persons" Relationship="joby_jobsModel.employer_person_id4" FromRole="employer_person_settings" ToRole="employer_persons" />
+        </EntityType>
+        <EntityType Name="employer_persons">
+          <Key>
+            <PropertyRef Name="employer_person_id" />
+          </Key>
+          <Property Name="employer_person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="identity_user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="employer_id" Type="Int32" Nullable="false" />
+          <Property Name="employer_department_id" Type="Int32" />
+          <Property Name="first_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="id_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="job_function" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="register_date" Type="DateTime" Nullable="false" />
+          <Property Name="is_initiator" Type="Boolean" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="last_update" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="conversation_messages" Relationship="joby_jobsModel.employer_person_id3" FromRole="employer_persons" ToRole="conversation_messages" />
+          <NavigationProperty Name="employer_person_settings" Relationship="joby_jobsModel.employer_person_id4" FromRole="employer_persons" ToRole="employer_person_settings" />
+          <NavigationProperty Name="empoyer_departments" Relationship="joby_jobsModel.employer_department_id2" FromRole="employer_persons" ToRole="empoyer_departments" />
+          <NavigationProperty Name="employer" Relationship="joby_jobsModel.employer_id8" FromRole="employer_persons" ToRole="employer" />
+          <NavigationProperty Name="reactions" Relationship="joby_jobsModel.employer_person_id" FromRole="employer_persons" ToRole="reaction" />
+          <NavigationProperty Name="employer_persons_invites" Relationship="joby_jobsModel.employer_person_id11" FromRole="employer_persons" ToRole="employer_persons_invites" />
+          <NavigationProperty Name="user" Relationship="joby_jobsModel.user_id1" FromRole="employer_persons" ToRole="user" />
+        </EntityType>
+        <EntityType Name="employer_persons_invites">
+          <Key>
+            <PropertyRef Name="invite_id" />
+          </Key>
+          <Property Name="invite_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invite_uid" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+          <Property Name="employer_person_id" Type="Int32" Nullable="false" />
+          <Property Name="recipient_email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="employer_persons" Relationship="joby_jobsModel.employer_person_id11" FromRole="employer_persons_invites" ToRole="employer_persons" />
+        </EntityType>
+        <EntityType Name="employer">
+          <Key>
+            <PropertyRef Name="employer_id" />
+          </Key>
+          <Property Name="employer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="contact_person_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="contact_person_phone_number" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="company_hp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="join_date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="about" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="website_url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="last_updated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="conversation_messages" Relationship="joby_jobsModel.employer_id3" FromRole="employer" ToRole="conversation_messages" />
+          <NavigationProperty Name="employer_persons" Relationship="joby_jobsModel.employer_id8" FromRole="employer" ToRole="employer_persons" />
+          <NavigationProperty Name="reactions" Relationship="joby_jobsModel.employer_id_16" FromRole="employer" ToRole="reaction" />
+          <NavigationProperty Name="positions" Relationship="joby_jobsModel.employer_id1" FromRole="employer" ToRole="position" />
+          <NavigationProperty Name="empoyer_departments" Relationship="joby_jobsModel.employer_id21" FromRole="employer" ToRole="empoyer_departments" />
+          <NavigationProperty Name="interviews" Relationship="joby_jobsModel.employer_id6" FromRole="employer" ToRole="interview" />
+        </EntityType>
+        <EntityType Name="empoyer_departments">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employer_id" Type="Int32" Nullable="false" />
+          <Property Name="department_name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="employer_persons" Relationship="joby_jobsModel.employer_department_id2" FromRole="empoyer_departments" ToRole="employer_persons" />
+          <NavigationProperty Name="employer" Relationship="joby_jobsModel.employer_id21" FromRole="empoyer_departments" ToRole="employer" />
+        </EntityType>
+        <EntityType Name="extern_cities">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="field">
+          <Key>
+            <PropertyRef Name="filed_id" />
+          </Key>
+          <Property Name="filed_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="professions" Relationship="joby_jobsModel.field_id1" FromRole="field" ToRole="profession" />
+        </EntityType>
+        <EntityType Name="global_settings">
+          <Key>
+            <PropertyRef Name="global_setting_id" />
+          </Key>
+          <Property Name="global_setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="global_settings_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="value" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="interview">
+          <Key>
+            <PropertyRef Name="interview_id" />
+          </Key>
+          <Property Name="interview_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="interview_uid" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+          <Property Name="employer_id" Type="Int32" Nullable="false" />
+          <Property Name="seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="location" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="notes" Type="String" MaxLength="9999" FixedLength="false" Unicode="false" />
+          <Property Name="is_cancelled" Type="Boolean" />
+          <Property Name="cancel_reason" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="employer" Relationship="joby_jobsModel.employer_id6" FromRole="interview" ToRole="employer" />
+          <NavigationProperty Name="seeker" Relationship="joby_jobsModel.seeker_id6" FromRole="interview" ToRole="seeker" />
+        </EntityType>
+        <EntityType Name="position_tags">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position_id" Type="Int32" Nullable="false" />
+          <Property Name="tag_id" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+          <Property Name="precedence" Type="Int32" />
+          <NavigationProperty Name="position" Relationship="joby_jobsModel.position_id1" FromRole="position_tags" ToRole="position" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="position_id" />
+          </Key>
+          <Property Name="position_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position_uid" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+          <Property Name="employer_id" Type="Int32" Nullable="false" />
+          <Property Name="position_type" Type="Int32" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="profession_id" Type="Int32" Nullable="false" />
+          <Property Name="subprofession_id" Type="Int32" />
+          <Property Name="salary_min" Type="Int32" Nullable="false" />
+          <Property Name="salary_max" Type="Int32" Nullable="false" />
+          <Property Name="location" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="status_id" Type="Int32" Nullable="false" />
+          <Property Name="internal_precedence" Type="Int32" />
+          <Property Name="draft" Type="Boolean" Nullable="false" />
+          <Property Name="frozen" Type="Boolean" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="applications" Relationship="joby_jobsModel.position_id4" FromRole="position" ToRole="application" />
+          <NavigationProperty Name="employer" Relationship="joby_jobsModel.employer_id1" FromRole="position" ToRole="employer" />
+          <NavigationProperty Name="position_tags" Relationship="joby_jobsModel.position_id1" FromRole="position" ToRole="position_tags" />
+          <NavigationProperty Name="reactions" Relationship="joby_jobsModel.position_id" FromRole="position" ToRole="reaction" />
+          <NavigationProperty Name="profession" Relationship="joby_jobsModel.profession_id1" FromRole="position" ToRole="profession" />
+          <NavigationProperty Name="subprofession" Relationship="joby_jobsModel.subprofession_id1" FromRole="position" ToRole="subprofession" />
+        </EntityType>
+        <EntityType Name="profession">
+          <Key>
+            <PropertyRef Name="profession_id" />
+          </Key>
+          <Property Name="profession_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="field_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="field" Relationship="joby_jobsModel.field_id1" FromRole="profession" ToRole="field" />
+          <NavigationProperty Name="positions" Relationship="joby_jobsModel.profession_id1" FromRole="profession" ToRole="position" />
+          <NavigationProperty Name="subprofessions" Relationship="joby_jobsModel.profession_id" FromRole="profession" ToRole="subprofession" />
+        </EntityType>
+        <EntityType Name="reaction_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="reactions" Relationship="joby_jobsModel.reaction_type_1" FromRole="reaction_types" ToRole="reaction" />
+        </EntityType>
+        <EntityType Name="reaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="employer_id" Type="Int32" />
+          <Property Name="reaction_type_id" Type="Int32" Nullable="false" />
+          <Property Name="position_id" Type="Int32" />
+          <Property Name="employer_person_id" Type="Int32" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="last_updated" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="active" Type="Boolean" />
+          <NavigationProperty Name="employer_persons" Relationship="joby_jobsModel.employer_person_id" FromRole="reaction" ToRole="employer_persons" />
+          <NavigationProperty Name="employer" Relationship="joby_jobsModel.employer_id_16" FromRole="reaction" ToRole="employer" />
+          <NavigationProperty Name="position" Relationship="joby_jobsModel.position_id" FromRole="reaction" ToRole="position" />
+          <NavigationProperty Name="reaction_types" Relationship="joby_jobsModel.reaction_type_1" FromRole="reaction" ToRole="reaction_types" />
+          <NavigationProperty Name="seeker" Relationship="joby_jobsModel.seeker_id9" FromRole="reaction" ToRole="seeker" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="users" Relationship="joby_jobsModel.userroles" FromRole="role" ToRole="user" />
+        </EntityType>
+        <EntityType Name="seeker_job_interests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="salary_min" Type="Int32" />
+          <Property Name="location_cities" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="distance" Type="Int32" />
+          <NavigationProperty Name="seeker" Relationship="joby_jobsModel.seeker_id19" FromRole="seeker_job_interests" ToRole="seeker" />
+        </EntityType>
+        <EntityType Name="seeker_resumes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="about_me" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="cv_file" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="cv_upload_date" Type="DateTime" />
+          <Property Name="last_updated" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="seeker" Relationship="joby_jobsModel.seeker_id7" FromRole="seeker_resumes" ToRole="seeker" />
+        </EntityType>
+        <EntityType Name="seeker_settings">
+          <Key>
+            <PropertyRef Name="setting_id" />
+          </Key>
+          <Property Name="setting_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="setting_key" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="settings_value" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="last_updated" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="seeker" Relationship="joby_jobsModel.seeker_id13" FromRole="seeker_settings" ToRole="seeker" />
+        </EntityType>
+        <EntityType Name="seeker">
+          <Key>
+            <PropertyRef Name="seeker_id" />
+          </Key>
+          <Property Name="seeker_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="identity_user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="first_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="register_date" Type="DateTime" Nullable="false" />
+          <Property Name="birth_date" Type="DateTime" Nullable="false" />
+          <Property Name="gender" Type="Int32" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="last_update" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="applications" Relationship="joby_jobsModel.seeker_id1" FromRole="seeker" ToRole="application" />
+          <NavigationProperty Name="conversation_messages" Relationship="joby_jobsModel.seeker_id3" FromRole="seeker" ToRole="conversation_messages" />
+          <NavigationProperty Name="interviews" Relationship="joby_jobsModel.seeker_id6" FromRole="seeker" ToRole="interview" />
+          <NavigationProperty Name="reactions" Relationship="joby_jobsModel.seeker_id9" FromRole="seeker" ToRole="reaction" />
+          <NavigationProperty Name="seeker_job_interests" Relationship="joby_jobsModel.seeker_id19" FromRole="seeker" ToRole="seeker_job_interests" />
+          <NavigationProperty Name="seeker_resumes" Relationship="joby_jobsModel.seeker_id7" FromRole="seeker" ToRole="seeker_resumes" />
+          <NavigationProperty Name="seeker_settings" Relationship="joby_jobsModel.seeker_id13" FromRole="seeker" ToRole="seeker_settings" />
+          <NavigationProperty Name="user" Relationship="joby_jobsModel.user_id2" FromRole="seeker" ToRole="user" />
+        </EntityType>
+        <EntityType Name="subprofession">
+          <Key>
+            <PropertyRef Name="subprofession_id" />
+          </Key>
+          <Property Name="subprofession_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="profession_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="tag_id" Type="String" Nullable="false" MaxLength="38" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="positions" Relationship="joby_jobsModel.subprofession_id1" FromRole="subprofession" ToRole="position" />
+          <NavigationProperty Name="profession" Relationship="joby_jobsModel.profession_id" FromRole="subprofession" ToRole="profession" />
+        </EntityType>
+        <EntityType Name="userclaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="ClaimValue" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="joby_jobsModel.ApplicationUser_Claims" FromRole="userclaim" ToRole="user" />
+        </EntityType>
+        <EntityType Name="userlogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="user" Relationship="joby_jobsModel.ApplicationUser_Logins" FromRole="userlogin" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="admin_persons" Relationship="joby_jobsModel.user_id_1" FromRole="user" ToRole="admin_persons" />
+          <NavigationProperty Name="employer_persons" Relationship="joby_jobsModel.user_id1" FromRole="user" ToRole="employer_persons" />
+          <NavigationProperty Name="seekers" Relationship="joby_jobsModel.user_id2" FromRole="user" ToRole="seeker" />
+          <NavigationProperty Name="userclaims" Relationship="joby_jobsModel.ApplicationUser_Claims" FromRole="user" ToRole="userclaim" />
+          <NavigationProperty Name="userlogins" Relationship="joby_jobsModel.ApplicationUser_Logins" FromRole="user" ToRole="userlogin" />
+          <NavigationProperty Name="roles" Relationship="joby_jobsModel.userroles" FromRole="user" ToRole="role" />
+        </EntityType>
+        <Association Name="admin_person_id_FK">
+          <End Type="joby_jobsModel.admin_persons" Role="admin_persons" Multiplicity="1" />
+          <End Type="joby_jobsModel.admin_person_settings" Role="admin_person_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin_persons">
+              <PropertyRef Name="admin_person_id" />
+            </Principal>
+            <Dependent Role="admin_person_settings">
+              <PropertyRef Name="admin_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_id_1">
+          <End Type="joby_jobsModel.user" Role="user" Multiplicity="1" />
+          <End Type="joby_jobsModel.admin_persons" Role="admin_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="admin_persons">
+              <PropertyRef Name="identity_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="application_status_id_1">
+          <End Type="joby_jobsModel.application_statuses" Role="application_statuses" Multiplicity="1" />
+          <End Type="joby_jobsModel.application" Role="application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="application_statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="application">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="position_id4">
+          <End Type="joby_jobsModel.position" Role="position" Multiplicity="1" />
+          <End Type="joby_jobsModel.application" Role="application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="application">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id1">
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="1" />
+          <End Type="joby_jobsModel.application" Role="application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seeker">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="application">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id3">
+          <End Type="joby_jobsModel.employer" Role="employer" Multiplicity="1" />
+          <End Type="joby_jobsModel.conversation_messages" Role="conversation_messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="conversation_messages">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id3">
+          <End Type="joby_jobsModel.employer_persons" Role="employer_persons" Multiplicity="1" />
+          <End Type="joby_jobsModel.conversation_messages" Role="conversation_messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="conversation_messages">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id3">
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="1" />
+          <End Type="joby_jobsModel.conversation_messages" Role="conversation_messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seeker">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="conversation_messages">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id4">
+          <End Type="joby_jobsModel.employer_persons" Role="employer_persons" Multiplicity="1" />
+          <End Type="joby_jobsModel.employer_person_settings" Role="employer_person_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="employer_person_settings">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_department_id2">
+          <End Type="joby_jobsModel.empoyer_departments" Role="empoyer_departments" Multiplicity="0..1" />
+          <End Type="joby_jobsModel.employer_persons" Role="employer_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empoyer_departments">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="employer_persons">
+              <PropertyRef Name="employer_department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id8">
+          <End Type="joby_jobsModel.employer" Role="employer" Multiplicity="1" />
+          <End Type="joby_jobsModel.employer_persons" Role="employer_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="employer_persons">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id">
+          <End Type="joby_jobsModel.employer_persons" Role="employer_persons" Multiplicity="0..1" />
+          <End Type="joby_jobsModel.reaction" Role="reaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="reaction">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_person_id11">
+          <End Type="joby_jobsModel.employer_persons" Role="employer_persons" Multiplicity="1" />
+          <End Type="joby_jobsModel.employer_persons_invites" Role="employer_persons_invites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer_persons">
+              <PropertyRef Name="employer_person_id" />
+            </Principal>
+            <Dependent Role="employer_persons_invites">
+              <PropertyRef Name="employer_person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_id1">
+          <End Type="joby_jobsModel.user" Role="user" Multiplicity="1" />
+          <End Type="joby_jobsModel.employer_persons" Role="employer_persons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="employer_persons">
+              <PropertyRef Name="identity_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id_16">
+          <End Type="joby_jobsModel.employer" Role="employer" Multiplicity="0..1" />
+          <End Type="joby_jobsModel.reaction" Role="reaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="reaction">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id1">
+          <End Type="joby_jobsModel.employer" Role="employer" Multiplicity="1" />
+          <End Type="joby_jobsModel.position" Role="position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="position">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id21">
+          <End Type="joby_jobsModel.employer" Role="employer" Multiplicity="1" />
+          <End Type="joby_jobsModel.empoyer_departments" Role="empoyer_departments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="empoyer_departments">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employer_id6">
+          <End Type="joby_jobsModel.employer" Role="employer" Multiplicity="1" />
+          <End Type="joby_jobsModel.interview" Role="interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employer">
+              <PropertyRef Name="employer_id" />
+            </Principal>
+            <Dependent Role="interview">
+              <PropertyRef Name="employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="field_id1">
+          <End Type="joby_jobsModel.field" Role="field" Multiplicity="1" />
+          <End Type="joby_jobsModel.profession" Role="profession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="field">
+              <PropertyRef Name="filed_id" />
+            </Principal>
+            <Dependent Role="profession">
+              <PropertyRef Name="field_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id6">
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="1" />
+          <End Type="joby_jobsModel.interview" Role="interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seeker">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="interview">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="position_id1">
+          <End Type="joby_jobsModel.position" Role="position" Multiplicity="1" />
+          <End Type="joby_jobsModel.position_tags" Role="position_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="position_tags">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="position_id">
+          <End Type="joby_jobsModel.position" Role="position" Multiplicity="0..1" />
+          <End Type="joby_jobsModel.reaction" Role="reaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="reaction">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="profession_id1">
+          <End Type="joby_jobsModel.profession" Role="profession" Multiplicity="1" />
+          <End Type="joby_jobsModel.position" Role="position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profession">
+              <PropertyRef Name="profession_id" />
+            </Principal>
+            <Dependent Role="position">
+              <PropertyRef Name="profession_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="subprofession_id1">
+          <End Type="joby_jobsModel.subprofession" Role="subprofession" Multiplicity="0..1" />
+          <End Type="joby_jobsModel.position" Role="position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subprofession">
+              <PropertyRef Name="subprofession_id" />
+            </Principal>
+            <Dependent Role="position">
+              <PropertyRef Name="subprofession_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="profession_id">
+          <End Type="joby_jobsModel.profession" Role="profession" Multiplicity="1" />
+          <End Type="joby_jobsModel.subprofession" Role="subprofession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profession">
+              <PropertyRef Name="profession_id" />
+            </Principal>
+            <Dependent Role="subprofession">
+              <PropertyRef Name="profession_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="reaction_type_1">
+          <End Type="joby_jobsModel.reaction_types" Role="reaction_types" Multiplicity="1" />
+          <End Type="joby_jobsModel.reaction" Role="reaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="reaction_types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reaction">
+              <PropertyRef Name="reaction_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id9">
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="1" />
+          <End Type="joby_jobsModel.reaction" Role="reaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seeker">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="reaction">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id19">
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="1" />
+          <End Type="joby_jobsModel.seeker_job_interests" Role="seeker_job_interests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seeker">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="seeker_job_interests">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id7">
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="1" />
+          <End Type="joby_jobsModel.seeker_resumes" Role="seeker_resumes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seeker">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="seeker_resumes">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="seeker_id13">
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="1" />
+          <End Type="joby_jobsModel.seeker_settings" Role="seeker_settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seeker">
+              <PropertyRef Name="seeker_id" />
+            </Principal>
+            <Dependent Role="seeker_settings">
+              <PropertyRef Name="seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="user_id2">
+          <End Type="joby_jobsModel.user" Role="user" Multiplicity="1" />
+          <End Type="joby_jobsModel.seeker" Role="seeker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="seeker">
+              <PropertyRef Name="identity_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationUser_Claims">
+          <End Type="joby_jobsModel.user" Role="user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="joby_jobsModel.userclaim" Role="userclaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userclaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ApplicationUser_Logins">
+          <End Type="joby_jobsModel.user" Role="user" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="joby_jobsModel.userlogin" Role="userlogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userlogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userroles">
+          <End Type="joby_jobsModel.user" Role="user" Multiplicity="*" />
+          <End Type="joby_jobsModel.role" Role="role" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="joby_jobsModelStoreContainer" CdmEntityContainer="JobyJobsDB2">
+          <EntitySetMapping Name="admin_person_settings">
+            <EntityTypeMapping TypeName="joby_jobsModel.admin_person_settings">
+              <MappingFragment StoreEntitySet="admin_person_settings">
+                <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+                <ScalarProperty Name="settings_value" ColumnName="settings_value" />
+                <ScalarProperty Name="setting_key" ColumnName="setting_key" />
+                <ScalarProperty Name="admin_person_id" ColumnName="admin_person_id" />
+                <ScalarProperty Name="setting_id" ColumnName="setting_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin_persons">
+            <EntityTypeMapping TypeName="joby_jobsModel.admin_persons">
+              <MappingFragment StoreEntitySet="admin_persons">
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="register_date" ColumnName="register_date" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="identity_user_id" ColumnName="identity_user_id" />
+                <ScalarProperty Name="admin_person_id" ColumnName="admin_person_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="application_statuses">
+            <EntityTypeMapping TypeName="joby_jobsModel.application_statuses">
+              <MappingFragment StoreEntitySet="application_statuses">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="visual_name" ColumnName="visual_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="applications">
+            <EntityTypeMapping TypeName="joby_jobsModel.application">
+              <MappingFragment StoreEntitySet="applications">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+                <ScalarProperty Name="watched" ColumnName="watched" />
+                <ScalarProperty Name="story" ColumnName="story" />
+                <ScalarProperty Name="application_start_date" ColumnName="application_start_date" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conversation_messages">
+            <EntityTypeMapping TypeName="joby_jobsModel.conversation_messages">
+              <MappingFragment StoreEntitySet="conversation_messages">
+                <ScalarProperty Name="is_read" ColumnName="is_read" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="header" ColumnName="header" />
+                <ScalarProperty Name="employer_person_id" ColumnName="employer_person_id" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+                <ScalarProperty Name="message_type" ColumnName="message_type" />
+                <ScalarProperty Name="message_uid" ColumnName="message_uid" />
+                <ScalarProperty Name="message_id" ColumnName="message_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employer_person_settings">
+            <EntityTypeMapping TypeName="joby_jobsModel.employer_person_settings">
+              <MappingFragment StoreEntitySet="employer_person_settings">
+                <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+                <ScalarProperty Name="settings_value" ColumnName="settings_value" />
+                <ScalarProperty Name="setting_key" ColumnName="setting_key" />
+                <ScalarProperty Name="employer_person_id" ColumnName="employer_person_id" />
+                <ScalarProperty Name="setting_id" ColumnName="setting_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employer_persons">
+            <EntityTypeMapping TypeName="joby_jobsModel.employer_persons">
+              <MappingFragment StoreEntitySet="employer_persons">
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="is_initiator" ColumnName="is_initiator" />
+                <ScalarProperty Name="register_date" ColumnName="register_date" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="job_function" ColumnName="job_function" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="employer_department_id" ColumnName="employer_department_id" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+                <ScalarProperty Name="identity_user_id" ColumnName="identity_user_id" />
+                <ScalarProperty Name="employer_person_id" ColumnName="employer_person_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employer_persons_invites">
+            <EntityTypeMapping TypeName="joby_jobsModel.employer_persons_invites">
+              <MappingFragment StoreEntitySet="employer_persons_invites">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="recipient_email" ColumnName="recipient_email" />
+                <ScalarProperty Name="employer_person_id" ColumnName="employer_person_id" />
+                <ScalarProperty Name="invite_uid" ColumnName="invite_uid" />
+                <ScalarProperty Name="invite_id" ColumnName="invite_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employers">
+            <EntityTypeMapping TypeName="joby_jobsModel.employer">
+              <MappingFragment StoreEntitySet="employers">
+                <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="website_url" ColumnName="website_url" />
+                <ScalarProperty Name="about" ColumnName="about" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="join_date" ColumnName="join_date" />
+                <ScalarProperty Name="company_hp" ColumnName="company_hp" />
+                <ScalarProperty Name="contact_person_phone_number" ColumnName="contact_person_phone_number" />
+                <ScalarProperty Name="contact_person_name" ColumnName="contact_person_name" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empoyer_departments">
+            <EntityTypeMapping TypeName="joby_jobsModel.empoyer_departments">
+              <MappingFragment StoreEntitySet="empoyer_departments">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="extern_cities">
+            <EntityTypeMapping TypeName="joby_jobsModel.extern_cities">
+              <MappingFragment StoreEntitySet="extern_cities">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fields">
+            <EntityTypeMapping TypeName="joby_jobsModel.field">
+              <MappingFragment StoreEntitySet="fields">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="filed_id" ColumnName="filed_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="global_settings">
+            <EntityTypeMapping TypeName="joby_jobsModel.global_settings">
+              <MappingFragment StoreEntitySet="global_settings">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="global_settings_key" ColumnName="global_settings_key" />
+                <ScalarProperty Name="global_setting_id" ColumnName="global_setting_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="interviews">
+            <EntityTypeMapping TypeName="joby_jobsModel.interview">
+              <MappingFragment StoreEntitySet="interviews">
+                <ScalarProperty Name="cancel_reason" ColumnName="cancel_reason" />
+                <ScalarProperty Name="is_cancelled" ColumnName="is_cancelled" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+                <ScalarProperty Name="interview_uid" ColumnName="interview_uid" />
+                <ScalarProperty Name="interview_id" ColumnName="interview_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="position_tags">
+            <EntityTypeMapping TypeName="joby_jobsModel.position_tags">
+              <MappingFragment StoreEntitySet="position_tags">
+                <ScalarProperty Name="precedence" ColumnName="precedence" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="positions">
+            <EntityTypeMapping TypeName="joby_jobsModel.position">
+              <MappingFragment StoreEntitySet="positions">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="frozen" ColumnName="frozen" />
+                <ScalarProperty Name="draft" ColumnName="draft" />
+                <ScalarProperty Name="internal_precedence" ColumnName="internal_precedence" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="salary_max" ColumnName="salary_max" />
+                <ScalarProperty Name="salary_min" ColumnName="salary_min" />
+                <ScalarProperty Name="subprofession_id" ColumnName="subprofession_id" />
+                <ScalarProperty Name="profession_id" ColumnName="profession_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="position_type" ColumnName="position_type" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+                <ScalarProperty Name="position_uid" ColumnName="position_uid" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="professions">
+            <EntityTypeMapping TypeName="joby_jobsModel.profession">
+              <MappingFragment StoreEntitySet="professions">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="field_id" ColumnName="field_id" />
+                <ScalarProperty Name="profession_id" ColumnName="profession_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reaction_types">
+            <EntityTypeMapping TypeName="joby_jobsModel.reaction_types">
+              <MappingFragment StoreEntitySet="reaction_types">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reactions">
+            <EntityTypeMapping TypeName="joby_jobsModel.reaction">
+              <MappingFragment StoreEntitySet="reactions">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="employer_person_id" ColumnName="employer_person_id" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+                <ScalarProperty Name="reaction_type_id" ColumnName="reaction_type_id" />
+                <ScalarProperty Name="employer_id" ColumnName="employer_id" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="joby_jobsModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seeker_job_interests">
+            <EntityTypeMapping TypeName="joby_jobsModel.seeker_job_interests">
+              <MappingFragment StoreEntitySet="seeker_job_interests">
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="location_cities" ColumnName="location_cities" />
+                <ScalarProperty Name="salary_min" ColumnName="salary_min" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seeker_resumes">
+            <EntityTypeMapping TypeName="joby_jobsModel.seeker_resumes">
+              <MappingFragment StoreEntitySet="seeker_resumes">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+                <ScalarProperty Name="cv_upload_date" ColumnName="cv_upload_date" />
+                <ScalarProperty Name="cv_file" ColumnName="cv_file" />
+                <ScalarProperty Name="about_me" ColumnName="about_me" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seeker_settings">
+            <EntityTypeMapping TypeName="joby_jobsModel.seeker_settings">
+              <MappingFragment StoreEntitySet="seeker_settings">
+                <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+                <ScalarProperty Name="settings_value" ColumnName="settings_value" />
+                <ScalarProperty Name="setting_key" ColumnName="setting_key" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+                <ScalarProperty Name="setting_id" ColumnName="setting_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seekers">
+            <EntityTypeMapping TypeName="joby_jobsModel.seeker">
+              <MappingFragment StoreEntitySet="seekers">
+                <ScalarProperty Name="last_update" ColumnName="last_update" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="register_date" ColumnName="register_date" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="identity_user_id" ColumnName="identity_user_id" />
+                <ScalarProperty Name="seeker_id" ColumnName="seeker_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subprofessions">
+            <EntityTypeMapping TypeName="joby_jobsModel.subprofession">
+              <MappingFragment StoreEntitySet="subprofessions">
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="profession_id" ColumnName="profession_id" />
+                <ScalarProperty Name="subprofession_id" ColumnName="subprofession_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userclaims">
+            <EntityTypeMapping TypeName="joby_jobsModel.userclaim">
+              <MappingFragment StoreEntitySet="userclaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userlogins">
+            <EntityTypeMapping TypeName="joby_jobsModel.userlogin">
+              <MappingFragment StoreEntitySet="userlogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="joby_jobsModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="userroles" TypeName="joby_jobsModel.userroles" StoreEntitySet="userroles">
+            <EndProperty Name="role">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="user">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

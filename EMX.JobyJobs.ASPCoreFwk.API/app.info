@@ -1,0 +1,126 @@
+﻿::::::Concepts::::::
+.datetime.
+web+native:
+db= always save utc
+db<-> app<-> until ui = always use UTC
+ui = local time
+services<-> = always use UTC
+
+.languages tables db.
+main table- contains all data + language-variable data in main language**
+** in case main language data not exists in languages table.
+languages table- contains pk for re_id+lang_id
+                 contains only language-variable data for each record in the main table.
+** main language in the application is hebrew (id=1)
+
+
+.uploaded files.
+allowed avatar images: .png, .gif,.jpg
+allowed employer logos: .png, .gif,.jpg
+allowed cv formats: .doc, .docx
+user files upload path: @wwwroot/Resources/UserFiles
+seeker avatars upload path: @wwwroot/Resources/UserFiles/SeekerAvatars
+-> pattern: @wwwroot/Resources/UserFiles/SeekerAvatars/{Identity_User_Id}/Avatar_{Identity_User_Id}.png
+seeker CVs upload path: @wwwroot/Resources/UserFiles/SeekerCVs
+-> pattern: @wwwroot/Resources/UserFiles/SeekerCVs/{Identity_User_Id}/CV_{Identity_User_Id}.docx
+employer logos upload path: @wwwroot/Resources/UserFiles/EmployerLogos
+-> pattern: @wwwroot/Resources/UserFiles/EmployerLogos/{Employer_UID}/Logo_{Employer_UID}.png
+employer person avatars upload path: @wwwroot/Resources/UserFiles/EmployerPersonAvatars
+-> pattern: @wwwroot/Resources/UserFiles/EmployerPersonAvatars/{Identity_User_Id}/Avatar_{Identity_User_Id}.png
+** the system currently allows one cv per seeker.
+** the system currently supports only ".docx" and ".jpeg" files
+
+.position ranks.
+normal position rank is 1.
+position are normally ordered descendingly by date of exposal (status changed to OnAir),
+higher rankings means higher place in search results.
+
+:::::GUIDs:::::
+"JwtSigningKey": "40014857-F5E9-4810-956A-DB819AE9494F",
+
+::::HotLinks - ::::
+email:
+EmployerRegisterInviteMail: 
+InterviewInviteMail: 
+EmailConfirmMail:
+ForgotPasswordMail: 
+
+
+sms:
+
+push:
+
+native-share:
+SharePositionLink
+
+
+::::Known DB types::::
+gender
+1=male
+2=female
+
+positions\position_types
+1=FullTime
+2=PartTime
+3=OnShifts
+
+positions\position_status
+1=Draft
+2=OnAir
+3=Frozen
+4=Deleted
+
+application\application_statuses
+1=New
+2=NotRelevant
+3=AfterPhoneInterview
+4=InvitedForInterview
+5=Rejected
+6=NotInterested
+7=InProcessAfterInterview
+8=Accepted
+
+conversation_messages\message_type
+1=SeekerToEmployer
+2=SeekerToEmployerForPosition
+3=EmployerToSeeker
+4=EmployerToSeekerForPosition
+
+employer_persons_invites\employer_person_invite_statuses
+1=sent
+2=opened
+3=accepted
+4=rejected
+5=cancelled
+
+records guids\
+SeekerRoleGUID = new Guid("162B5DCC-6359-4DF5-944D-0575A372685A");
+EmployerRoleGUID = new Guid("B99F9807-F2CB-466A-863F-9F2C9F0FEA9D");
+AdminRoleGUID = new Guid("20F355E9-B56E-4E79-9C16-269239D559D7");
+
+role ids\
+seeker=1
+employer=2
+administrator=3
+
+interview_statuses\   (code= Enums.InviteStatuses)
+1=sent
+2=opened
+3=accepted
+4=rejected
+5=cancelled
+
+
+seekers\work_states\
+0=unspecified
+1=AvailableAndLooking
+2=TempWorkingAndLooking
+3=WorkingAndLooking
+4=WorkingNoLooking
+
+
+notification_messages\notification_types\
+0=unspecified
+1=Email
+2=Sms
+3=NativePush

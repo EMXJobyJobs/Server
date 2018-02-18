@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+<script>
+
+</script>
+
+<div class="logoStrip">
+    <span>Joby</span>
+</div>
+
+
+@using (Html.BeginForm("RegisterEmployerQuick", "Account", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="employerName"></label>
+        <input id="employerName" name="employerName" type="text">
+    </div>
+    <div class="form-group">
+        <label for="employerHP"></label>
+        <input id="employerHP" name="employerHP" type="text">
+    </div>
+    <div class="form-group">
+        <label for="employerEmail"></label>
+        <input id="employerEmail" name="employerEmail" type="email">
+    </div>
+    <div class="form-group">
+        <label for="employerPhoneNumber"></label>
+        <input id="employerPhoneNumber" name="employerPhoneNumber" type="tel">
+    </div>
+    <div class="form-group">
+        <label for="employerAddress"></label>
+        <input id="employerAddress" name="employerAddress" type="text">
+    </div>
+    <div class="form-group">
+        <label for="employerWebSiteURL"></label>
+        <input id="employerWebSiteURL" name="employerWebSiteURL" type="url">
+    </div>
+    <div class="form-group">
+        <label for="employerPassword"></label>
+        <input id="employerPassword" name="employerPassword" type="password">
+    </div>
+    <div class="form-group">
+        <label for="employerAbout"></label>
+        <input id="employerAbout" name="employerAbout" type="text">
+    </div>
+    <div class="form-group">
+        <label for="employerLogo"></label>
+        <input id="employerLogo" name="employerLogo" type="text">
+    </div>
+    <div type="submit">הירשם</div>
+}

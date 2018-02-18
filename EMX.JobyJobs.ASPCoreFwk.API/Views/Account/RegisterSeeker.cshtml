@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+<script>
+    function setGender(value) {
+        $(genderHiddenField).val(value);
+    }
+</script>
+
+<div class="logoStrip">
+    <span>Joby</span>
+</div>
+
+
+@using (Html.BeginForm("RegisterWorker", "Account", FormMethod.Post))
+{
+    //Page 1:
+    <div class="form-group">
+        <label for="firstName"></label>
+        <input id="firstName" name="firstName" type="text">
+    </div>
+    <div class="form-group">
+        <label for="lastName"></label>
+        <input id="lastName" name="lastName" type="text">
+    </div>
+    <div class="form-group">
+        <label for="idNumber"></label>
+        <input id="idNumber" name="idNumber" type="text">
+    </div>
+    <div class="form-group">
+        <label for="birthDate"></label>
+        <input id="birthDate" name="birthDate" type="text">
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber"></label>
+        <input id="phoneNumber" name="phoneNumber" type="text">
+    </div>
+    <div class="form-group">
+        <label for="fieldId"></label>
+        <select id="fieldId">
+            <option>תכנות</option>
+            <option>מלצרות</option>
+            <option>מחסן</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="professionId"></label>
+        <select id="professionId">
+            <option>מתכנת</option>
+            <option>מלצר</option>
+            <option>אחמש מלצרות</option>
+            <option>מחסנאי</option>
+        </select>
+    </div>
+
+
+
+    //Page 2:
+    <div class="form-group">
+        <label for="workerEmail"></label>
+        <input id="workerEmail" name="workerEmail" type="email">
+    </div>
+    <div class="form-group">
+        <label for="workerPassword"></label>
+        <input id="workerPassword" name="workerPassword" type="password">
+    </div>
+    <div class="form-group">
+        <label for="workerConfirmPassword"></label>
+        <input id="workerConfirmPassword" name="workerConfirmPassword" type="password">
+    </div>
+
+
+    //Submit:
+    <div type="submit">הירשם</div>
+}

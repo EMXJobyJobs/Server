@@ -37,8 +37,8 @@
     <Reference Include="AspNet.Identity.MySQL, Version=1.0.0.38741, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.Identity.MySQL.1.0.0.38741\lib\net452\AspNet.Identity.MySQL.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.1.2\lib\net45\CommonServiceLocator.dll</HintPath>
@@ -104,6 +104,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDataObject.cs" />
     <Compile Include="Models\admin_persons.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
@@ -113,22 +114,43 @@
     <Compile Include="Models\application.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\application_logs.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\application_statuses.cs">
-      <DependentUpon>JobyJobsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\company.cs">
-      <DependentUpon>JobyJobsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\company_persons.cs">
-      <DependentUpon>JobyJobsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\company_person_settings.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\conversation_messages.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\employer.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\employer_persons.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\employer_persons_invites.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\employer_person_settings.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\employer_settings.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\empoyer_departments.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\extern_cities.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\extern_cities_languages.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\field.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fields_languages.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\global_settings.cs">
@@ -152,13 +174,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JobyJobsDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\language.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelExtensions.cs" />
+    <Compile Include="Models\notification_messages.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\notification_messages_languages.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\notification_types.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\position.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\position_tags.cs">
+    <Compile Include="Models\positions_languages.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\position_settings.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\profession.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\professions_languages.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\reaction.cs">
@@ -170,7 +211,16 @@
     <Compile Include="Models\role.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\subprofession.cs">
+    <Compile Include="Models\seeker.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\seeker_job_interests.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\seeker_resumes.cs">
+      <DependentUpon>JobyJobsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\seeker_settings.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
@@ -180,18 +230,6 @@
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\userlogin.cs">
-      <DependentUpon>JobyJobsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\worker.cs">
-      <DependentUpon>JobyJobsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\worker_job_interests.cs">
-      <DependentUpon>JobyJobsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\worker_resumes.cs">
-      <DependentUpon>JobyJobsDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\worker_settings.cs">
       <DependentUpon>JobyJobsDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,7 +245,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EMX.JobyJobs.Shared\EMX.JobyJobs.Shared.csproj">
+      <Project>{c9cc9cec-25a5-45e8-84eb-5816af4e04e9}</Project>
+      <Name>EMX.JobyJobs.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

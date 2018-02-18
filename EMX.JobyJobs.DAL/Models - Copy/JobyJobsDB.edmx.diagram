@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c35089428edc4d5482bddc7a4f045b63" Name="Diagram1" ZoomLevel="36">
+        <EntityTypeShape EntityType="joby_jobsModel.admin_person_settings" Width="1.5" PointX="5.25" PointY="39.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.admin_persons" Width="1.5" PointX="3" PointY="38.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.application_statuses" Width="1.5" PointX="3" PointY="42.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.application" Width="1.5" PointX="5.25" PointY="18.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.conversation_messages" Width="1.5" PointX="11.25" PointY="24.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer_person_settings" Width="1.5" PointX="5.25" PointY="36.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer_persons" Width="1.5" PointX="3" PointY="26.375" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer_persons_invites" Width="1.5" PointX="5.25" PointY="28.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="joby_jobsModel.empoyer_departments" Width="1.5" PointX="0.75" PointY="29.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.extern_cities" Width="1.5" PointX="2.75" PointY="4.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.field" Width="1.5" PointX="1.5" PointY="0.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.global_settings" Width="1.5" PointX="4.75" PointY="2.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.interview" Width="1.5" PointX="8.25" PointY="21.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.position_tags" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="joby_jobsModel.position" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="joby_jobsModel.profession" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="joby_jobsModel.reaction_types" Width="1.5" PointX="6" PointY="15" />
+        <EntityTypeShape EntityType="joby_jobsModel.reaction" Width="1.5" PointX="8.25" PointY="26" />
+        <EntityTypeShape EntityType="joby_jobsModel.role" Width="1.5" PointX="3" PointY="33.875" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker_job_interests" Width="1.5" PointX="5.25" PointY="22.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker_resumes" Width="1.5" PointX="5.25" PointY="32.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker_settings" Width="1.5" PointX="5.25" PointY="25.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker" Width="1.5" PointX="3" PointY="20.375" />
+        <EntityTypeShape EntityType="joby_jobsModel.subprofession" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.userclaim" Width="1.5" PointX="3" PointY="15.875" />
+        <EntityTypeShape EntityType="joby_jobsModel.userlogin" Width="1.5" PointX="3" PointY="36.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.user" Width="1.5" PointX="0.75" PointY="23.625" />
+        <AssociationConnector Association="joby_jobsModel.admin_person_id_FK" />
+        <AssociationConnector Association="joby_jobsModel.user_id_1" />
+        <AssociationConnector Association="joby_jobsModel.application_status_id_1" />
+        <AssociationConnector Association="joby_jobsModel.position_id4" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id1" />
+        <AssociationConnector Association="joby_jobsModel.employer_id3" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id3" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id3" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id4" />
+        <AssociationConnector Association="joby_jobsModel.employer_department_id2" />
+        <AssociationConnector Association="joby_jobsModel.employer_id8" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id11" />
+        <AssociationConnector Association="joby_jobsModel.user_id1" />
+        <AssociationConnector Association="joby_jobsModel.employer_id_16" />
+        <AssociationConnector Association="joby_jobsModel.employer_id1" />
+        <AssociationConnector Association="joby_jobsModel.employer_id21" />
+        <AssociationConnector Association="joby_jobsModel.employer_id6" />
+        <AssociationConnector Association="joby_jobsModel.field_id1" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id6" />
+        <AssociationConnector Association="joby_jobsModel.position_id1" />
+        <AssociationConnector Association="joby_jobsModel.position_id" />
+        <AssociationConnector Association="joby_jobsModel.profession_id1" />
+        <AssociationConnector Association="joby_jobsModel.subprofession_id1" />
+        <AssociationConnector Association="joby_jobsModel.profession_id" />
+        <AssociationConnector Association="joby_jobsModel.reaction_type_1" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id9" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id19" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id7" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id13" />
+        <AssociationConnector Association="joby_jobsModel.user_id2" />
+        <AssociationConnector Association="joby_jobsModel.ApplicationUser_Claims" />
+        <AssociationConnector Association="joby_jobsModel.ApplicationUser_Logins" />
+        <AssociationConnector Association="joby_jobsModel.userroles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

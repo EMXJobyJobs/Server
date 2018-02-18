@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "PositionsPage";
+}
+<div class="positionsTab">
+    <div class="positionsList">
+        <div class="rightSideBar">
+            <a href="#">פרסם משרה</a>
+        </div>
+        <div class="activePositions">
+            <table>
+                <tr>
+                    <th>משרה</th>
+                    <th>מועמדים</th>
+                    <th>אפשרויות</th>
+                <tr>
+                    <td>מנהל פיתוח</td>
+                    <td>17</td>
+                    <td>מחק ערוך</td>
+                </tr>
+                <tr>
+                    <td>איש שיווק</td>
+                    <td>19</td>
+                    <td>מחק ערוך</td>
+                </tr>
+            </table>
+        </div>
+        <div class="frozenPositions"></div>
+        <div class="draftPositions"></div>
+        <div class="deletedPositions"></div>
+    </div>
+    <div class="positionDetails">
+        <div class="positionHeader">
+            <span>כותרת המשרה</span>
+            <label>בחר משרה</label>
+            <select>
+                <option>משרה 1</option>
+                <option>משרה 2</option>
+                <option>משרה 3</option>
+            </select>
+            <a href="#">חזרה לדף המשרות</a>
+        </div>
+        <div class="positionInfo">
+            <span>
+                תיאור
+            </span>
+            <span>
+                דרישות
+            </span>
+            <span>
+                קורות חיים
+            </span>
+        </div>
+        <div class="leftSideBar">
+            <a href="#">פרסם משרה</a>
+        </div>
+        <div class="bottomTab">
+            @* מועמדים שאהבתי: *@
+            <div class="likedWorkers">
+                <table>
+                    <tr>
+                        <th></th> @*likes*@
+                        <th>שם המועמד</th>
+                        <th>שם המשרה</th>
+                        <th>טלפון</th>
+                        <th>מייל</th>
+                        <th>תאריך ראיון</th>
+                        <th>סטטוס</th>
+                        <th>זימון ראיון</th>
+                    <tr>
+                        <td><a href="#">לייק</a></td>
+                        <td>יוסי לוי</td>
+                        <td>מנהל מוצר</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>בתהליך לאחר ראיון</td>
+                        <td>תאריכון</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">לייק</a></td>
+                        <td>אבי ישראלי</td>
+                        <td>מנהל שיוון</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>לא רלוונטי</td>
+                        <td>תאריכון</td>
+                    </tr>
+                </table>
+            </div>
+            @* מועמדים שאהבו אותי *@
+            <div class="workerLikes">
+
+            </div>
+            @* התאמות *@
+            <div class="matches">
+
+            </div>
+            @* מועמדים שהתקבלו *@
+            <div class="acceptedWorkers">
+
+            </div>
+        </div>
+    </div>
+</div>

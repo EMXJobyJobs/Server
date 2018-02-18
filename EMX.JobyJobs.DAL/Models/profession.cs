@@ -14,11 +14,22 @@ namespace EMX.JobyJobs.DAL.Models
     
     public partial class profession
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public profession()
+        {
+            this.positions = new HashSet<position>();
+            this.professions_languages = new HashSet<professions_languages>();
+        }
+    
         public int profession_id { get; set; }
         public int field_id { get; set; }
         public string title { get; set; }
-        public string tag_id { get; set; }
         public bool active { get; set; }
-        public string professionscol { get; set; }
+    
+        public virtual field field { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<position> positions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<professions_languages> professions_languages { get; set; }
     }
 }

@@ -1,0 +1,10 @@
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\bin\Release\EMX.JobyJobs.ProxyServices.dll.config
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\bin\Release\EMX.JobyJobs.ProxyServices.dll
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\bin\Release\EMX.JobyJobs.ProxyServices.pdb
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\bin\Release\EMX.JobyJobs.Shared.dll
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\bin\Release\EMX.JobyJobs.Shared.pdb
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\bin\Release\EMX.JobyJobs.Shared.dll.config
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\obj\Release\EMX.JobyJobs.ProxyServices.csprojResolveAssemblyReference.cache
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\obj\Release\EMX.JobyJobs.ProxyServices.csproj.CoreCompileInputs.cache
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\obj\Release\EMX.JobyJobs.ProxyServices.dll
+D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.ProxyServices\obj\Release\EMX.JobyJobs.ProxyServices.pdb

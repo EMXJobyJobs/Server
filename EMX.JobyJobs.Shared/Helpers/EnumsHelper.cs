@@ -8,6 +8,40 @@ namespace EMX.JobyJobs.Shared.Helpers
 {
   public static class EnumsHelper
   {
+    /// <summary>
+    /// Returns a corresponding string for the given enum value of value=1, value=2, value=3
+    /// </summary>
+    /// <typeparam name="TEnum"></typeparam>
+    /// <param name="val"></param>
+    /// <param name="value1"></param>
+    /// <param name="value2"></param>
+    /// <param name="value3"></param>
+    /// <returns></returns>
+    public static string GetTriEnumString(Enum val, string value1, string value2, string value3)
+    {
+      switch ((int)(object)val)   //Todo. Find a better solution.
+      {
+        case 1:
+          {
+            return value1;
+          }
+          break;
+        case 2:
+          {
+            return value2;
+          }
+          break;
+        case 3:
+          {
+            return value3;
+          }
+          break;
+        default:
+          return null;
+      }
+    }
+
+    //Extension Methods:
     public static string GetDescriptionFromEnumValue(Enum EnumValue)    //Note: EnumMeber overload.
     {
       EnumMemberAttribute attribute = EnumValue.GetType()

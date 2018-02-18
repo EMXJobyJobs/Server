@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="joby_jobsModelStoreContainer" CdmEntityContainer="JobyJobsDB2">
+    <EntitySetMapping Name="admin_person_settings">
+      <EntityTypeMapping TypeName="joby_jobsModel.admin_person_settings">
+        <MappingFragment StoreEntitySet="admin_person_settings">
+          <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+          <ScalarProperty Name="settings_value" ColumnName="settings_value" />
+          <ScalarProperty Name="setting_key" ColumnName="setting_key" />
+          <ScalarProperty Name="admin_person_id" ColumnName="admin_person_id" />
+          <ScalarProperty Name="setting_id" ColumnName="setting_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admin_persons">
+      <EntityTypeMapping TypeName="joby_jobsModel.admin_persons">
+        <MappingFragment StoreEntitySet="admin_persons">
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="register_date" ColumnName="register_date" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="identity_user_id" ColumnName="identity_user_id" />
+          <ScalarProperty Name="admin_person_id" ColumnName="admin_person_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="application_statuses">
+      <EntityTypeMapping TypeName="joby_jobsModel.application_statuses">
+        <MappingFragment StoreEntitySet="application_statuses">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="visual_name" ColumnName="visual_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="applications">
+      <EntityTypeMapping TypeName="joby_jobsModel.application">
+        <MappingFragment StoreEntitySet="applications">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+          <ScalarProperty Name="story" ColumnName="story" />
+          <ScalarProperty Name="application_start_date" ColumnName="application_start_date" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="position_id" ColumnName="position_id" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="joby_jobsModel.company">
+        <MappingFragment StoreEntitySet="companies">
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+          <ScalarProperty Name="contact_person_phone" ColumnName="contact_person_phone" />
+          <ScalarProperty Name="contact_person_name" ColumnName="contact_person_name" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company_person_settings">
+      <EntityTypeMapping TypeName="joby_jobsModel.company_person_settings">
+        <MappingFragment StoreEntitySet="company_person_settings">
+          <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+          <ScalarProperty Name="settings_value" ColumnName="settings_value" />
+          <ScalarProperty Name="setting_key" ColumnName="setting_key" />
+          <ScalarProperty Name="company_person_id" ColumnName="company_person_id" />
+          <ScalarProperty Name="setting_id" ColumnName="setting_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="company_persons">
+      <EntityTypeMapping TypeName="joby_jobsModel.company_persons">
+        <MappingFragment StoreEntitySet="company_persons">
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="register_date" ColumnName="register_date" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="identity_user_id" ColumnName="identity_user_id" />
+          <ScalarProperty Name="company_person_id" ColumnName="company_person_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conversation_messages">
+      <EntityTypeMapping TypeName="joby_jobsModel.conversation_messages">
+        <MappingFragment StoreEntitySet="conversation_messages">
+          <ScalarProperty Name="is_read" ColumnName="is_read" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="header" ColumnName="header" />
+          <ScalarProperty Name="company_person_id" ColumnName="company_person_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="message_type" ColumnName="message_type" />
+          <ScalarProperty Name="message_uid" ColumnName="message_uid" />
+          <ScalarProperty Name="message_id" ColumnName="message_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fields">
+      <EntityTypeMapping TypeName="joby_jobsModel.field">
+        <MappingFragment StoreEntitySet="fields">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="filed_id" ColumnName="filed_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="global_settings">
+      <EntityTypeMapping TypeName="joby_jobsModel.global_settings">
+        <MappingFragment StoreEntitySet="global_settings">
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="global_settings_key" ColumnName="global_settings_key" />
+          <ScalarProperty Name="global_setting_id" ColumnName="global_setting_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="interviews">
+      <EntityTypeMapping TypeName="joby_jobsModel.interview">
+        <MappingFragment StoreEntitySet="interviews">
+          <ScalarProperty Name="cancel_reason" ColumnName="cancel_reason" />
+          <ScalarProperty Name="is_cancelled" ColumnName="is_cancelled" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="interview_uid" ColumnName="interview_uid" />
+          <ScalarProperty Name="interview_id" ColumnName="interview_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="position_tags">
+      <EntityTypeMapping TypeName="joby_jobsModel.position_tags">
+        <MappingFragment StoreEntitySet="position_tags">
+          <ScalarProperty Name="precedence" ColumnName="precedence" />
+          <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+          <ScalarProperty Name="position_id" ColumnName="position_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="positions">
+      <EntityTypeMapping TypeName="joby_jobsModel.position">
+        <MappingFragment StoreEntitySet="positions">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="frozen" ColumnName="frozen" />
+          <ScalarProperty Name="draft" ColumnName="draft" />
+          <ScalarProperty Name="internal_precedence" ColumnName="internal_precedence" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="salary_max" ColumnName="salary_max" />
+          <ScalarProperty Name="salary_min" ColumnName="salary_min" />
+          <ScalarProperty Name="subprofession_id" ColumnName="subprofession_id" />
+          <ScalarProperty Name="profession_id" ColumnName="profession_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="position_type" ColumnName="position_type" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="position_uid" ColumnName="position_uid" />
+          <ScalarProperty Name="position_id" ColumnName="position_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="professions">
+      <EntityTypeMapping TypeName="joby_jobsModel.profession">
+        <MappingFragment StoreEntitySet="professions">
+          <ScalarProperty Name="professionscol" ColumnName="professionscol" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="field_id" ColumnName="field_id" />
+          <ScalarProperty Name="profession_id" ColumnName="profession_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reaction_types">
+      <EntityTypeMapping TypeName="joby_jobsModel.reaction_types">
+        <MappingFragment StoreEntitySet="reaction_types">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reactions">
+      <EntityTypeMapping TypeName="joby_jobsModel.reaction">
+        <MappingFragment StoreEntitySet="reactions">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="reaction_type_id" ColumnName="reaction_type_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="joby_jobsModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subprofessions">
+      <EntityTypeMapping TypeName="joby_jobsModel.subprofession">
+        <MappingFragment StoreEntitySet="subprofessions">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="profession_id" ColumnName="profession_id" />
+          <ScalarProperty Name="subprofession_id" ColumnName="subprofession_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userclaims">
+      <EntityTypeMapping TypeName="joby_jobsModel.userclaim">
+        <MappingFragment StoreEntitySet="userclaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userlogins">
+      <EntityTypeMapping TypeName="joby_jobsModel.userlogin">
+        <MappingFragment StoreEntitySet="userlogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="joby_jobsModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="worker_job_interests">
+      <EntityTypeMapping TypeName="joby_jobsModel.worker_job_interests">
+        <MappingFragment StoreEntitySet="worker_job_interests">
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="salary_max" ColumnName="salary_max" />
+          <ScalarProperty Name="salary_min" ColumnName="salary_min" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="worker_resumes">
+      <EntityTypeMapping TypeName="joby_jobsModel.worker_resumes">
+        <MappingFragment StoreEntitySet="worker_resumes">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="file" ColumnName="file" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="worker_settings">
+      <EntityTypeMapping TypeName="joby_jobsModel.worker_settings">
+        <MappingFragment StoreEntitySet="worker_settings">
+          <ScalarProperty Name="last_updated" ColumnName="last_updated" />
+          <ScalarProperty Name="settings_value" ColumnName="settings_value" />
+          <ScalarProperty Name="setting_key" ColumnName="setting_key" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+          <ScalarProperty Name="setting_id" ColumnName="setting_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workers">
+      <EntityTypeMapping TypeName="joby_jobsModel.worker">
+        <MappingFragment StoreEntitySet="workers">
+          <ScalarProperty Name="last_update" ColumnName="last_update" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="register_date" ColumnName="register_date" />
+          <ScalarProperty Name="id_number" ColumnName="id_number" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="identity_user_id" ColumnName="identity_user_id" />
+          <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="userroles" TypeName="joby_jobsModel.userroles" StoreEntitySet="userroles">
+      <EndProperty Name="role">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="user">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,21 @@
+\Scripts** - js folder (For mvc)
+\Content** - css+images folder (For mvc)
+\Fonts** - fonts folder (For mvc)
+--------------------------------------------
+\src  - main source code folder
+\e2e  - end to end tests
+\dist ** - js output folder (from typescript)
+\assets - client static assets (for angular)
+\Resources\Images ** - server generic images
+.editorconfig - editor configuration
+.gitignore - GIT ignore file
+angular-cli.json - angular CLI config file
+karma.conf.js - tests helper file
+package.json  -  Node packages file
+package-Lock.json  -  Node packages helper file
+protractor.conf.js - tests helper file
+README.md  - GIT readme file
+tsconfig.json  - TypeScript config file
+tslint.json - tests helper file
+
+** visible in VS

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 
@@ -207,6 +209,22 @@ namespace EMX.JobyJobs.Shared.Helpers
       {
         return defaultValue;
       }
+    }
+
+    /// <summary>
+    /// Splits the given string value to a comma-seperated-value (csv) array.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public static List<string> SplitToCsv(this string val, bool lowered = false)
+    {
+      IEnumerable<string> res = val.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries).AsEnumerable();
+      if (lowered)
+      {
+        res = res.Select(item => item.ToLower());
+      }
+
+      return res.ToList();
     }
 
   }

@@ -37,8 +37,8 @@
     <Reference Include="AspNet.Identity.MySQL, Version=1.0.0.38741, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.Identity.MySQL.1.0.0.38741\lib\net452\AspNet.Identity.MySQL.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.1.2\lib\net45\CommonServiceLocator.dll</HintPath>
@@ -57,6 +57,12 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -103,42 +109,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\CompaniesBL.cs" />
+    <Compile Include="BusinessObjects\ConversationMessagesOverview.cs" />
+    <Compile Include="BusinessObjects\EmployerPersonInvite.cs" />
+    <Compile Include="Business\AdminBL.cs" />
+    <Compile Include="Business\CRUD.cs" />
+    <Compile Include="Business\EmployersBL.cs" />
     <Compile Include="Business\ConversationsBL.cs" />
     <Compile Include="Business\ApplicationsBL.cs" />
+    <Compile Include="BusinessObjects\LookupId.cs" />
+    <Compile Include="Business\ILinkGenerator.cs" />
     <Compile Include="Business\PositionsBL.cs" />
     <Compile Include="Business\ProfessionsBL.cs" />
     <Compile Include="Business\ReactionsBL.cs" />
     <Compile Include="Business\UsersBL.cs" />
-    <Compile Include="Business\WorkersBL.cs" />
+    <Compile Include="Business\SeekersBL.cs" />
+    <Compile Include="Helpers\ICryptographyHelper.cs" />
+    <Compile Include="Interfaces\IBusiness.cs" />
+    <Compile Include="Interfaces\IBusinessObject.cs" />
+    <Compile Include="Managers\BLCacheSource.cs" />
+    <Compile Include="Managers\CacheManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceObjects\AdminPerson.cs" />
-    <Compile Include="ServiceObjects\Application.cs" />
-    <Compile Include="ServiceObjects\Company.cs" />
-    <Compile Include="ServiceObjects\CompanyPerson.cs" />
-    <Compile Include="ServiceObjects\FeaturedPositionsList.cs" />
-    <Compile Include="ServiceObjects\Field.cs" />
-    <Compile Include="ServiceObjects\Interview.cs" />
-    <Compile Include="ServiceObjects\Position.cs" />
-    <Compile Include="ServiceObjects\PositionsStats.cs" />
-    <Compile Include="ServiceObjects\Profession.cs" />
-    <Compile Include="ServiceObjects\ProfessionHierarchy.cs" />
-    <Compile Include="ServiceObjects\Reactions.cs" />
-    <Compile Include="ServiceObjects\ServiceObjectsExtensions.cs" />
-    <Compile Include="ServiceObjects\Subprofession.cs" />
-    <Compile Include="ServiceObjects\Worker.cs" />
+    <Compile Include="BusinessObjects\AdminPerson.cs" />
+    <Compile Include="BusinessObjects\Application.cs" />
+    <Compile Include="BusinessObjects\Employer.cs" />
+    <Compile Include="BusinessObjects\EmployerPerson.cs" />
+    <Compile Include="BusinessObjects\SeekersSearchResults.cs" />
+    <Compile Include="BusinessObjects\PositionsSearchResults.cs" />
+    <Compile Include="BusinessObjects\Field.cs" />
+    <Compile Include="BusinessObjects\Interview.cs" />
+    <Compile Include="BusinessObjects\Position.cs" />
+    <Compile Include="BusinessObjects\PositionsStats.cs" />
+    <Compile Include="BusinessObjects\Profession.cs" />
+    <Compile Include="BusinessObjects\ProfessionsHierarchy.cs" />
+    <Compile Include="BusinessObjects\Reaction.cs" />
+    <Compile Include="BusinessObjects\BusinessObjectsExtensions.cs" />
+    <Compile Include="BusinessObjects\Seeker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Managers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\EMX.JobyJobs.DAL\EMX.JobyJobs.DAL.csproj">
       <Project>{C6D06EAF-FD02-4E97-AC61-9A2451846411}</Project>
       <Name>EMX.JobyJobs.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EMX.JobyJobs.ProxyServices\EMX.JobyJobs.ProxyServices.csproj">
+      <Project>{32370040-C6B1-45D0-9724-54092C529D5B}</Project>
+      <Name>EMX.JobyJobs.ProxyServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\EMX.JobyJobs.Shared\EMX.JobyJobs.Shared.csproj">
       <Project>{C9CC9CEC-25A5-45E8-84EB-5816AF4E04E9}</Project>

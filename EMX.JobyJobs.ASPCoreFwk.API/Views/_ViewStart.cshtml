@@ -1,0 +1,7 @@
+@using EMX.JobyJobs.ASPCoreFwk.API.Helpers
+@using EMX.JobyJobs.Shared.Helpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+  Layout = EnumsHelper.GetTriEnumString(Configuration.Get<AppSettings>().General.ClientUIMode, "_Layout", "_LayoutMVC", "_LayoutTempl");
+}

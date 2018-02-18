@@ -14,14 +14,28 @@ namespace EMX.JobyJobs.DAL.Models
     
     public partial class application
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public application()
+        {
+            this.application_logs = new HashSet<application_logs>();
+            this.interviews = new HashSet<interview>();
+        }
+    
         public int id { get; set; }
-        public int worker_id { get; set; }
+        public int seeker_id { get; set; }
         public int position_id { get; set; }
         public int status_id { get; set; }
         public System.DateTime application_start_date { get; set; }
-        public string story { get; set; }
+        public Nullable<bool> watched { get; set; }
+        public Nullable<System.DateTime> last_updated { get; set; }
         public Nullable<bool> active { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<application_logs> application_logs { get; set; }
+        public virtual application_statuses application_statuses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<interview> interviews { get; set; }
         public virtual position position { get; set; }
+        public virtual seeker seeker { get; set; }
     }
 }

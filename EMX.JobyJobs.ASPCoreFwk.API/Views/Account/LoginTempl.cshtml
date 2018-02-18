@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div class="tr-account section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="user-account">
+                        <div class="account-content">
+                            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                            {
+                                @*<form action="#" class="tr-form">*@
+                                <div class="form-group">
+                                    <input type="email" name="Email" class="form-control" placeholder="Please Enter Your Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="Password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="user-option">
+                                    <div class="checkbox">
+                                        <label for="logged"><input type="checkbox" id="logged" name="RememberMe" value="true">Remember me</label>
+                                    </div>
+                                    <div class="forgot-password">
+                                        <a href="#">I forgot password</a>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                @*</form>*@
+                            }
+                            <div class="new-user text-center">
+                                <span><a href="signup.html">Create a New Account</a> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+        </div><!-- container -->
+    </div><!-- /.tr-account-->
+}

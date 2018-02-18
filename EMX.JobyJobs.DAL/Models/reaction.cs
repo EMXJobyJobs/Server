@@ -15,9 +15,19 @@ namespace EMX.JobyJobs.DAL.Models
     public partial class reaction
     {
         public int id { get; set; }
-        public int worker_id { get; set; }
-        public int company_id { get; set; }
+        public int seeker_id { get; set; }
+        public Nullable<int> employer_id { get; set; }
         public int reaction_type_id { get; set; }
-        public bool active { get; set; }
+        public Nullable<int> employer_person_id { get; set; }
+        public Nullable<int> position_id { get; set; }
+        public Nullable<bool> reaction_disabled { get; set; }
+        public Nullable<System.DateTime> last_updated { get; set; }
+        public Nullable<bool> active { get; set; }
+    
+        public virtual employer_persons employer_persons { get; set; }
+        public virtual employer employer { get; set; }
+        public virtual position position { get; set; }
+        public virtual reaction_types reaction_types { get; set; }
+        public virtual seeker seeker { get; set; }
     }
 }

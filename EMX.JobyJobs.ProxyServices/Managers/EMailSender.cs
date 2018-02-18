@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 namespace EMX.JobyJobs.ProxyServices.Managers
 {
-    public static class EmailSender
+  public interface IEmailSender
+  {
+    void Send(MailMessage message);
+  }
+  public class EmailSender : IEmailSender
+  {
+    public void Send(MailMessage message)
     {
-        public static void Send(MailMessage message)
-        {
 
-        }
     }
+  }
+
 }

@@ -16,15 +16,20 @@ namespace EMX.JobyJobs.DAL.Models
     {
         public int interview_id { get; set; }
         public string interview_uid { get; set; }
-        public int company_id { get; set; }
-        public int worker_id { get; set; }
-        public System.DateTime date { get; set; }
+        public int employer_id { get; set; }
+        public Nullable<int> application_id { get; set; }
+        public int seeker_id { get; set; }
+        public System.DateTime invite_date { get; set; }
+        public int invite_status_id { get; set; }
+        public string invite_cancelReject_reason { get; set; }
+        public System.DateTime due_date { get; set; }
         public string location { get; set; }
-        public string address { get; set; }
         public string notes { get; set; }
-        public Nullable<bool> is_cancelled { get; set; }
-        public string cancel_reason { get; set; }
+        public Nullable<System.DateTime> last_updated { get; set; }
+        public Nullable<bool> active { get; set; }
     
-        public virtual company company { get; set; }
+        public virtual application application { get; set; }
+        public virtual employer employer { get; set; }
+        public virtual seeker seeker { get; set; }
     }
 }

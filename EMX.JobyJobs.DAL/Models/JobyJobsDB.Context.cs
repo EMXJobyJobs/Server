@@ -27,28 +27,40 @@ namespace EMX.JobyJobs.DAL.Models
     
         public virtual DbSet<admin_person_settings> admin_person_settings { get; set; }
         public virtual DbSet<admin_persons> admin_persons { get; set; }
+        public virtual DbSet<application_logs> application_logs { get; set; }
         public virtual DbSet<application_statuses> application_statuses { get; set; }
         public virtual DbSet<application> applications { get; set; }
-        public virtual DbSet<company> companies { get; set; }
-        public virtual DbSet<company_person_settings> company_person_settings { get; set; }
-        public virtual DbSet<company_persons> company_persons { get; set; }
         public virtual DbSet<conversation_messages> conversation_messages { get; set; }
+        public virtual DbSet<employer_person_settings> employer_person_settings { get; set; }
+        public virtual DbSet<employer_persons> employer_persons { get; set; }
+        public virtual DbSet<employer_persons_invites> employer_persons_invites { get; set; }
+        public virtual DbSet<employer_settings> employer_settings { get; set; }
+        public virtual DbSet<employer> employers { get; set; }
+        public virtual DbSet<empoyer_departments> empoyer_departments { get; set; }
+        public virtual DbSet<extern_cities> extern_cities { get; set; }
+        public virtual DbSet<extern_cities_languages> extern_cities_languages { get; set; }
         public virtual DbSet<field> fields { get; set; }
+        public virtual DbSet<fields_languages> fields_languages { get; set; }
         public virtual DbSet<global_settings> global_settings { get; set; }
         public virtual DbSet<interview> interviews { get; set; }
-        public virtual DbSet<position_tags> position_tags { get; set; }
+        public virtual DbSet<language> languages { get; set; }
+        public virtual DbSet<notification_messages> notification_messages { get; set; }
+        public virtual DbSet<notification_messages_languages> notification_messages_languages { get; set; }
+        public virtual DbSet<notification_types> notification_types { get; set; }
+        public virtual DbSet<position_settings> position_settings { get; set; }
         public virtual DbSet<position> positions { get; set; }
+        public virtual DbSet<positions_languages> positions_languages { get; set; }
         public virtual DbSet<profession> professions { get; set; }
+        public virtual DbSet<professions_languages> professions_languages { get; set; }
         public virtual DbSet<reaction_types> reaction_types { get; set; }
         public virtual DbSet<reaction> reactions { get; set; }
         public virtual DbSet<role> roles { get; set; }
-        public virtual DbSet<subprofession> subprofessions { get; set; }
+        public virtual DbSet<seeker_job_interests> seeker_job_interests { get; set; }
+        public virtual DbSet<seeker_resumes> seeker_resumes { get; set; }
+        public virtual DbSet<seeker_settings> seeker_settings { get; set; }
+        public virtual DbSet<seeker> seekers { get; set; }
         public virtual DbSet<userclaim> userclaims { get; set; }
         public virtual DbSet<userlogin> userlogins { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<worker_job_interests> worker_job_interests { get; set; }
-        public virtual DbSet<worker_resumes> worker_resumes { get; set; }
-        public virtual DbSet<worker_settings> worker_settings { get; set; }
-        public virtual DbSet<worker> workers { get; set; }
     }
 }

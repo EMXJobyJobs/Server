@@ -17,15 +17,21 @@ namespace EMX.JobyJobs.DAL.Models
         public int message_id { get; set; }
         public string message_uid { get; set; }
         public int message_type { get; set; }
-        public int worker_id { get; set; }
-        public int company_id { get; set; }
-        public int company_person_id { get; set; }
+        public int seeker_id { get; set; }
+        public int employer_id { get; set; }
+        public Nullable<bool> is_unassigned { get; set; }
+        public Nullable<int> employer_person_id { get; set; }
+        public Nullable<int> position_id { get; set; }
         public string header { get; set; }
         public string content { get; set; }
         public System.DateTime date { get; set; }
         public bool is_read { get; set; }
+        public bool is_archived { get; set; }
+        public Nullable<bool> active { get; set; }
     
-        public virtual company company { get; set; }
-        public virtual company_persons company_persons { get; set; }
+        public virtual employer employer { get; set; }
+        public virtual employer_persons employer_persons { get; set; }
+        public virtual position position { get; set; }
+        public virtual seeker seeker { get; set; }
     }
 }

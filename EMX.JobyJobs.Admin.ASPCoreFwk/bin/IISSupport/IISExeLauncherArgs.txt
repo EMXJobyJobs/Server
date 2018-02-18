@@ -1,0 +1,10 @@
+-p D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.Admin.ASPCoreFwk\bin\Debug\net461\EMX.JobyJobs.Admin.ASPCoreFwk.exe
+-pidFile D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.Admin.ASPCoreFwk\bin\IISSupport\pidfile.txt
+-wd D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.Admin.ASPCoreFwk
+-a 
+-wbe Global\Builde9eaa6c8-a33c-41fb-bd27-b3ba27344772
+-lse Global\Launch4526a7ed-8271-4e1c-a252-95cb9efd8843
+-pipe ac912f75-4672-495c-bf38-70831aca2e21
+-pr EMX.JobyJobs.Admin.ASPCoreFwk
+-owningPid 520
+-env ASPNETCORE_CONTENTROOT=D:\WorkDrive\TFS\Emx\JobyJobs\Source\EMX.JobyJobs.Admin.ASPCoreFwk|KeyASPNETCORE_ENVIRONMENT=Development|COMPLUS_ForceENC=1|

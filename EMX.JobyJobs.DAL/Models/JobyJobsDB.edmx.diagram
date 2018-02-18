@@ -4,43 +4,93 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c35089428edc4d5482bddc7a4f045b63" Name="Diagram1">
-        <EntityTypeShape EntityType="joby_jobsModel.admin_person_settings" Width="1.5" PointX="5.25" PointY="14.875" />
-        <EntityTypeShape EntityType="joby_jobsModel.admin_persons" Width="1.5" PointX="3" PointY="14.5" />
-        <EntityTypeShape EntityType="joby_jobsModel.application_statuses" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.application" Width="1.5" PointX="8" PointY="1.875" />
-        <EntityTypeShape EntityType="joby_jobsModel.company" Width="1.5" PointX="3.75" PointY="7.875" />
-        <EntityTypeShape EntityType="joby_jobsModel.company_person_settings" Width="1.5" PointX="8.25" PointY="13.5" />
-        <EntityTypeShape EntityType="joby_jobsModel.company_persons" Width="1.5" PointX="6" PointY="8.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.conversation_messages" Width="1.5" PointX="8.25" PointY="8.875" />
-        <EntityTypeShape EntityType="joby_jobsModel.field" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.global_settings" Width="1.5" PointX="7.75" PointY="5.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.interview" Width="1.5" PointX="6" PointY="17.875" />
-        <EntityTypeShape EntityType="joby_jobsModel.position_tags" Width="1.5" PointX="9.75" PointY="5.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.position" Width="1.5" PointX="5.75" PointY="1" />
-        <EntityTypeShape EntityType="joby_jobsModel.profession" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.reaction_types" Width="1.5" PointX="10.75" PointY="8.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.reaction" Width="1.5" PointX="11.75" PointY="3.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.role" Width="1.5" PointX="3" PointY="5.25" />
-        <EntityTypeShape EntityType="joby_jobsModel.subprofession" Width="1.5" PointX="10.75" PointY="11.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.userclaim" Width="1.5" PointX="3" PointY="11.875" />
-        <EntityTypeShape EntityType="joby_jobsModel.userlogin" Width="1.5" PointX="3" PointY="18.25" />
-        <EntityTypeShape EntityType="joby_jobsModel.user" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="joby_jobsModel.worker_job_interests" Width="1.5" PointX="12.75" PointY="0.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.worker_resumes" Width="1.5" PointX="12.75" PointY="6.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.worker_settings" Width="1.5" PointX="12.75" PointY="9.75" />
-        <EntityTypeShape EntityType="joby_jobsModel.worker" Width="1.5" PointX="12.75" PointY="12.75" />
+      <Diagram DiagramId="c35089428edc4d5482bddc7a4f045b63" Name="Diagram1" ZoomLevel="25">
+        <EntityTypeShape EntityType="joby_jobsModel.admin_person_settings" Width="1.5" PointX="8.25" PointY="6.875" />
+        <EntityTypeShape EntityType="joby_jobsModel.admin_persons" Width="1.5" PointX="6" PointY="6.375" />
+        <EntityTypeShape EntityType="joby_jobsModel.application_logs" Width="1.5" PointX="12.75" PointY="38.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.application_statuses" Width="1.5" PointX="8.25" PointY="39.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.application" Width="1.5" PointX="10.5" PointY="32.375" />
+        <EntityTypeShape EntityType="joby_jobsModel.conversation_messages" Width="1.5" PointX="13.5" PointY="28.875" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer_person_settings" Width="1.5" PointX="5.25" PointY="34.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer_persons" Width="1.5" PointX="3" PointY="29.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer_persons_invites" Width="1.5" PointX="5.25" PointY="48.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer_settings" Width="1.5" PointX="3.75" PointY="40.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.employer" Width="1.5" PointX="1.5" PointY="38.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.empoyer_departments" Width="1.5" PointX="0.75" PointY="35.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.extern_cities" Width="1.5" PointX="0.75" PointY="30.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.extern_cities_languages" Width="1.5" PointX="3" PointY="26.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.field" Width="1.5" PointX="1.5" PointY="20.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.fields_languages" Width="1.5" PointX="3" PointY="23.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.global_settings" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.interview" Width="1.5" PointX="15.75" PointY="28" />
+        <EntityTypeShape EntityType="joby_jobsModel.language" Width="1.5" PointX="0.75" PointY="25.5" />
+        <EntityTypeShape EntityType="joby_jobsModel.notification_messages" Width="1.5" PointX="3.75" PointY="44.875" />
+        <EntityTypeShape EntityType="joby_jobsModel.notification_messages_languages" Width="1.5" PointX="6" PointY="31.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.notification_types" Width="1.5" PointX="1.5" PointY="45.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.position_settings" Width="1.5" PointX="10.5" PointY="41.5" />
+        <EntityTypeShape EntityType="joby_jobsModel.position" Width="1.5" PointX="8.25" PointY="32.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.positions_languages" Width="1.5" PointX="13.5" PointY="34.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.profession" Width="1.5" PointX="3.75" PointY="20" />
+        <EntityTypeShape EntityType="joby_jobsModel.professions_languages" Width="1.5" PointX="6" PointY="21.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.reaction_types" Width="1.5" PointX="9" PointY="19.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.reaction" Width="1.5" PointX="11.25" PointY="27.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.role" Width="1.5" PointX="6" PointY="13.375" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker_job_interests" Width="1.5" PointX="8.25" PointY="26.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker_resumes" Width="1.5" PointX="8.25" PointY="23.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker_settings" Width="1.5" PointX="8.25" PointY="29.25" />
+        <EntityTypeShape EntityType="joby_jobsModel.seeker" Width="1.5" PointX="6" PointY="24.125" />
+        <EntityTypeShape EntityType="joby_jobsModel.userclaim" Width="1.5" PointX="6" PointY="15.625" />
+        <EntityTypeShape EntityType="joby_jobsModel.userlogin" Width="1.5" PointX="6" PointY="10.75" />
+        <EntityTypeShape EntityType="joby_jobsModel.user" Width="1.5" PointX="3.75" PointY="13.875" />
         <AssociationConnector Association="joby_jobsModel.admin_person_id_FK" />
         <AssociationConnector Association="joby_jobsModel.user_id_1" />
+        <AssociationConnector Association="joby_jobsModel.application_id" />
+        <AssociationConnector Association="joby_jobsModel.application_status_id_1" />
+        <AssociationConnector Association="joby_jobsModel.application_id32" />
         <AssociationConnector Association="joby_jobsModel.position_id4" />
-        <AssociationConnector Association="joby_jobsModel.company_id" />
-        <AssociationConnector Association="joby_jobsModel.company_id_FK" />
-        <AssociationConnector Association="joby_jobsModel.company_id6" />
-        <AssociationConnector Association="joby_jobsModel.company_person_id_FK" />
-        <AssociationConnector Association="joby_jobsModel.company_person_id_6" />
-        <AssociationConnector Association="joby_jobsModel.user_id_3" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id1" />
+        <AssociationConnector Association="joby_jobsModel.employer_id3" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id3" />
+        <AssociationConnector Association="joby_jobsModel.position_id24" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id3" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id4" />
+        <AssociationConnector Association="joby_jobsModel.employer_department_id2" />
+        <AssociationConnector Association="joby_jobsModel.employer_id8" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id" />
+        <AssociationConnector Association="joby_jobsModel.employer_person_id11" />
+        <AssociationConnector Association="joby_jobsModel.lang_id12" />
+        <AssociationConnector Association="joby_jobsModel.user_id1" />
+        <AssociationConnector Association="joby_jobsModel.employer_id29" />
+        <AssociationConnector Association="joby_jobsModel.employer_id_16" />
+        <AssociationConnector Association="joby_jobsModel.employer_id1" />
+        <AssociationConnector Association="joby_jobsModel.employer_id21" />
+        <AssociationConnector Association="joby_jobsModel.employer_id6" />
+        <AssociationConnector Association="joby_jobsModel.city_id" />
+        <AssociationConnector Association="joby_jobsModel.lang_id1" />
+        <AssociationConnector Association="joby_jobsModel.field_id1" />
+        <AssociationConnector Association="joby_jobsModel.field_id16" />
+        <AssociationConnector Association="joby_jobsModel.lang_id13" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id6" />
+        <AssociationConnector Association="joby_jobsModel.lang_id" />
+        <AssociationConnector Association="joby_jobsModel.lang_id11" />
+        <AssociationConnector Association="joby_jobsModel.lang_id19" />
+        <AssociationConnector Association="joby_jobsModel.lang_id21" />
+        <AssociationConnector Association="joby_jobsModel.message_id" />
+        <AssociationConnector Association="joby_jobsModel.notification_type_id" />
+        <AssociationConnector Association="joby_jobsModel.position_id19" />
+        <AssociationConnector Association="joby_jobsModel.position_id14" />
+        <AssociationConnector Association="joby_jobsModel.position_id31" />
+        <AssociationConnector Association="joby_jobsModel.profession_id1" />
+        <AssociationConnector Association="joby_jobsModel.profession_id17" />
+        <AssociationConnector Association="joby_jobsModel.reaction_type_1" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id9" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id19" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id7" />
+        <AssociationConnector Association="joby_jobsModel.seeker_id13" />
+        <AssociationConnector Association="joby_jobsModel.user_id2" />
         <AssociationConnector Association="joby_jobsModel.ApplicationUser_Claims" />
         <AssociationConnector Association="joby_jobsModel.ApplicationUser_Logins" />
+        <AssociationConnector Association="joby_jobsModel.position_notifiables" />
         <AssociationConnector Association="joby_jobsModel.userroles" />
       </Diagram>
     </edmx:Diagrams>

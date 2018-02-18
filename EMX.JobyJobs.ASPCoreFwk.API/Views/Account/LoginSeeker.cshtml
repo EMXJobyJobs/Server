@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="logoStrip">
+    <span>Joby</span>
+    <a href="#">צור חשבון</a>
+</div>
+
+@using (Html.BeginForm("LoginWorker", "Account", FormMethod.Post))
+{
+    <div class="form-group">
+        <input type="email" name="Email" class="form-control" placeholder="Please Enter Your Email">
+    </div>
+    <div class="form-group">
+        <input type="password" name="Password" class="form-control" placeholder="Password">
+    </div>
+    <div class="user-option">
+        <div class="checkbox">
+            <label for="logged"><input type="checkbox" id="logged" name="RememberMe" value="true">Remember me</label>
+        </div>
+        <div class="forgot-password">
+            <a href="#">I forgot password</a>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">היכנס</button>
+}
